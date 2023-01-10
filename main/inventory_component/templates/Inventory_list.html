@@ -1,16 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory List Page</title>
-</head>
-<body>
-    <h1>Welcome to the Inventory Page</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-    <p>These are the Items</p>
+{% block title %}Inventory Page{% endblock %}
 
+{% block content %}
+
+    <div class="row">
+        <div class="col">
+            <div class="item_list_heading mb-5">
+                <h1 class="fs-2">Welcome to the Inventory Page</h1>
+                <p class="fs-5">These are the Inventory Items</p>
+            </div>  
+        </div>
+    </div>
+
+    <div class="row">
+        {% for item in items %}
+            <div class="col-md-7 py-3"> <!-- edit the class to change the length/padding of the cards-->
+                <div class="card">
+
+                    <div class="card-header">
+                        {{ item.item }}
+                    </div>
+
+                    <div class="card-body ">
+                        {{ item.description }}
+                    </div>
+
+                    <div class="card-footer">
+                        Quantity : {{ item.quantity }}  
+                    </div> 
+                    
+                    <div> <!-- NEED TO MOVE THE EDIT BUTTON TO THE SIDE OF EACH CARD -->
+                        <a href="{% url 'item.detail' pk=item.id %}" class="btn btn-info btn-sm">Edit</a>
+                    </div>
+                    
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+   <!--
     <ul>
         {% for item in items %}
         <li>{{ item.item }}</li>        
@@ -20,6 +53,6 @@
         
         {% endfor %}
     </ul>
+    -->
 
-</body>
-</html>
+{% endblock content %}

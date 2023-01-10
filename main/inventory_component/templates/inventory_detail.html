@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Inventory Details Page{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Inventory Item Details</div> 
+            <div class="card-body">
+                <h1 class="fs-5">{{ item.item }}</h1>
+                <p class="fs-5">{{ item.description }}</p>
+                <p class="fs-5">{{ item.quantity }}</p>
+            </div>
+        </div>        
+    </div>
+</div>  
+
+
+    
+<!--
+    <p>{{ item.item }}</p>
+    <p>{{ item.description }}</p>
+    <p>{{ item.quantity }}</p>
+-->
+    
+{% endblock content %}

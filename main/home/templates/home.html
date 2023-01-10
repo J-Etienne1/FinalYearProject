@@ -1,15 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    
-    <h1>Hello from the Home page</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col">
+            <div class="home-holder">  <!-- WHY HOME HOLDER, MAYBE HADER??? LOOK BACK IN VIDS-->
+                <h1 class="fs-2">Welcome to the Home page</h1>
+            </div>  
+        </div>
+    </div>    
+    <!-- import of from datetime import datetime doesnt work with class HomePage in view find an alternative
     <p>Today is {{ today }}</p>
+    -->
+
+
+
+    <!-- DONT NEED THIS BE KEEP FOR THE TIME BEING
+    <div class="row">
+        <div class="col">
+            <div class="home-holder">
+                <h1 class="fs-3">Hello</h1>
+                <p>Welcome to the Home page</p>
+                <a href="" class></a>
+            </div>
+        </div>
+    </div>
+    -->
+
+
+
+
+
     
-</body>
-</html>
+{% endblock content %}

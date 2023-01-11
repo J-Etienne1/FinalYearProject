@@ -1,31 +1,37 @@
 from django.shortcuts import render
 from .models import Inventory
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 
-class inventorylist(ListView):
+from .forms import ItemForm
+
+class InventoryList(ListView):
     model = Inventory
     context_object_name = "items"
     template_name = "inventory_list.html"
 
-'''
-def inventorylist(request):
-    all_items = Inventory.objects.all()
-    return render(request, 'inventory_list.html', {'items': all_items})
-'''
 
 
-
-class inventoryitemdetail(DetailView):
+class InventoryItemDetail(DetailView):
     model = Inventory
     context_object_name = "item"
     template_name = "inventory_detail.html"
 
 
 
-'''
-def inventoryitemdetail(request, pk):
-    item = Inventory.objects.get(pk=pk)
-    return render(request, 'inventory_detail.html', {'item': item})
 
-'''
+# Used to Create New Inventory Item and add to DB
+class CreateItem(CreateView):
+    model = Inventory    
+    template_name = "inventory_add.html"
+    success_url = '/inventory/'
+    #fields = ['item', 'description', 'quantity']  #FORM_CLASS REPLACES THIS
+    form_class = ItemForm
+
+
+# Used to Update an Item that is in the Inventory DB
+class UpdateItem(UpdateView):
+    model = Inventory 
+    success_url = '/inventory/' 
+    form_class = ItemForm
+    template_name = "inventory_detail.html"

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# from datetime import datetime
+from datetime import datetime
+from django.utils import timezone
 # from django.contrib.auth.decorators import login_required : class based mixis takes care of this
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
@@ -10,6 +11,12 @@ from django.views.generic import TemplateView
 
 class HomePage(TemplateView):
     template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+    
 
 '''
 def home(request):

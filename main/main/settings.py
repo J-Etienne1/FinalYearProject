@@ -23,7 +23,13 @@ usermane: admin
 email: admin@mail.com
 PW: 123456
 
+======================
 
+STANDARD USER
+
+usermane: jason
+email: jason@mail.com
+PW: 123456
 
 '''
 

@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from .models import Inventory
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 from .forms import ItemForm
-
+from django.urls import reverse_lazy
 class InventoryList(ListView):
     model = Inventory
     context_object_name = "items"
@@ -20,7 +20,7 @@ class InventoryItemDetail(DetailView):
 
 
 
-# Used to Create New Inventory Item and add to DB
+# Used to CREATE a New Inventory Item and add to DB
 class CreateItem(CreateView):
     model = Inventory    
     template_name = "inventory_add.html"
@@ -29,10 +29,19 @@ class CreateItem(CreateView):
     form_class = ItemForm
 
 
-# Used to Update an Item that is in the Inventory DB
+# Used to UPDATE an Item that is in the Inventory DB
 class UpdateItem(UpdateView):
     model = Inventory 
     success_url = '/inventory/' 
     form_class = ItemForm
     context_object_name = "item"
     template_name = "inventory_add.html"
+
+
+# Used to DELETE an Item that is in the Inventory DB
+class DeleteItem(DeleteView):
+    model = Inventory      
+    success_url = '/inventory/'
+    context_object_name = "item"
+    template_name = "inventory_delete.html"
+

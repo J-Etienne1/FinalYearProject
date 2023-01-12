@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="confirm-message text-center">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
+                <p>this action cant be undone</p>
+                <input type="submit" class="btn btn-sm btn-danger" value="confirm">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+<!--
+    <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="pk" value="{{ item.pk }}">
+                <input type="hidden" name="_method" value="delete">
+                <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
+                <p>this action cant be undone</p>
+                <input type="submit" name="submit" class="btn btn-sm btn-danger" value="confirm">
+            </form>
+-->

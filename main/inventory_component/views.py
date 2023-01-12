@@ -34,4 +34,5 @@ class UpdateItem(UpdateView):
     model = Inventory 
     success_url = '/inventory/' 
     form_class = ItemForm
-    template_name = "inventory_detail.html"
+    context_object_name = "item"
+    template_name = "inventory_add.html"

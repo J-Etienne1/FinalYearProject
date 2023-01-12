@@ -5,43 +5,77 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from .forms import ItemForm
 from django.urls import reverse_lazy
-class InventoryList(ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+class InventoryList(LoginRequiredMixin, ListView):
     model = Inventory
     context_object_name = "items"
     template_name = "inventory_list.html"
+    login_url = '/admin'
+
+    def get_queryset(self):
+        return self.request.user.items.all()
 
 
 
-class InventoryItemDetail(DetailView):
+class InventoryItemDetail(LoginRequiredMixin, DetailView):
     model = Inventory
     context_object_name = "item"
     template_name = "inventory_detail.html"
+    login_url = '/admin'
+
+    def get_queryset(self):
+        return self.request.user.items.all()
+
+    
 
 
 
 
 # Used to CREATE a New Inventory Item and add to DB
-class CreateItem(CreateView):
+class CreateItem(LoginRequiredMixin, CreateView):
     model = Inventory    
     template_name = "inventory_add.html"
     success_url = '/inventory/'
     #fields = ['item', 'description', 'quantity']  #FORM_CLASS REPLACES THIS
     form_class = ItemForm
+    login_url = '/admin'
+
+    def get_queryset(self):
+        return self.request.user.items.all()
+
+
+
+
+
 
 
 # Used to UPDATE an Item that is in the Inventory DB
-class UpdateItem(UpdateView):
+class UpdateItem(LoginRequiredMixin, UpdateView):
     model = Inventory 
     success_url = '/inventory/' 
     form_class = ItemForm
     context_object_name = "item"
     template_name = "inventory_add.html"
+    login_url = '/admin'
+
+    def get_queryset(self):
+        return self.request.user.items.all()
+
+
 
 
 # Used to DELETE an Item that is in the Inventory DB
-class DeleteItem(DeleteView):
+class DeleteItem(LoginRequiredMixin, DeleteView):
     model = Inventory      
     success_url = '/inventory/'
     context_object_name = "item"
     template_name = "inventory_delete.html"
+    login_url = '/admin'
+
+    def get_queryset(self):
+        return self.request.user.items.all()
+
+
 

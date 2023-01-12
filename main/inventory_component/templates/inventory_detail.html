@@ -19,13 +19,13 @@
 
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7 mx-auto">
         <div class="card">
             <div class="card-header">Inventory Item Details</div> 
             <div class="card-body">
-                <h1 class="fs-5">{{ item.item }}</h1>
-                <p class="fs-5">{{ item.description }}</p>
-                <p class="fs-5">{{ item.quantity }}</p>
+                <h1 class="fs-5">Item: {{ item.item }}</h1>
+                <p class="fs-5">Description: {{ item.description }}</p>
+                <p class="fs-5">Quantity: {{ item.quantity }}</p>
             </div>
             <div class="card-footer">
                 <a href="{% url 'inventory_list' %}" class="btn btn-sm btn-primary">Back</a>
@@ -37,11 +37,5 @@
 </div>  
 
 
-    
-<!--
-    <p>{{ item.item }}</p>
-    <p>{{ item.description }}</p>
-    <p>{{ item.quantity }}</p>
--->
     
 {% endblock content %}

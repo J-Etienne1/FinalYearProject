@@ -46,7 +46,7 @@ class CreateItem(LoginRequiredMixin, CreateView):
         return self.request.user.items.all()
 '''
 
-# Used to CREATE a New Inventory Item and add to DB
+# Used to CREATE a New Inventory Item and add to DB this is an update of the previous CreateItem as there was a bug when adding a Item when you loggeg back in
 class CreateItem(LoginRequiredMixin, CreateView):
     model = Inventory    
     template_name = "inventory_add.html"

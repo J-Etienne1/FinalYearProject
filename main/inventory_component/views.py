@@ -32,7 +32,7 @@ class InventoryItemDetail(LoginRequiredMixin, DetailView):
 
 
 
-
+'''
 # Used to CREATE a New Inventory Item and add to DB
 class CreateItem(LoginRequiredMixin, CreateView):
     model = Inventory    
@@ -44,8 +44,19 @@ class CreateItem(LoginRequiredMixin, CreateView):
 
     def get_queryset(self):
         return self.request.user.items.all()
+'''
 
+# Used to CREATE a New Inventory Item and add to DB
+class CreateItem(LoginRequiredMixin, CreateView):
+    model = Inventory    
+    template_name = "inventory_add.html"
+    success_url = '/inventory/'
+    form_class = ItemForm
+    login_url = '/admin'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 

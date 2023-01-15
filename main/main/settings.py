@@ -28,8 +28,7 @@ PW: 123456
 STANDARD USER
 
 usermane: jason
-email: jason@mail.com
-PW: 123456
+PW: SuperSecure!123
 
 '''
 
@@ -68,6 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'inventory_component',
+    'login_register_component',
 ]
 
 MIDDLEWARE = [
@@ -157,3 +157,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+LOGIN_REDIRECT_URL = '/'

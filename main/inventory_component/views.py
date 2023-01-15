@@ -12,7 +12,7 @@ class InventoryList(LoginRequiredMixin, ListView):
     model = Inventory
     context_object_name = "items"
     template_name = "inventory_list.html"
-    login_url = '/admin'
+    login_url = '/login'
 
     def get_queryset(self):
         return self.request.user.items.all()
@@ -23,7 +23,7 @@ class InventoryItemDetail(LoginRequiredMixin, DetailView):
     model = Inventory
     context_object_name = "item"
     template_name = "inventory_detail.html"
-    login_url = '/admin'
+    login_url = '/login'
 
     def get_queryset(self):
         return self.request.user.items.all()
@@ -52,7 +52,7 @@ class CreateItem(LoginRequiredMixin, CreateView):
     template_name = "inventory_add.html"
     success_url = '/inventory/'
     form_class = ItemForm
-    login_url = '/admin'
+    login_url = '/login'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -69,7 +69,7 @@ class UpdateItem(LoginRequiredMixin, UpdateView):
     form_class = ItemForm
     context_object_name = "item"
     template_name = "inventory_add.html"
-    login_url = '/admin'
+    login_url = '/login'
 
     def get_queryset(self):
         return self.request.user.items.all()
@@ -83,7 +83,7 @@ class DeleteItem(LoginRequiredMixin, DeleteView):
     success_url = '/inventory/'
     context_object_name = "item"
     template_name = "inventory_delete.html"
-    login_url = '/admin'
+    login_url = '/login'
 
     def get_queryset(self):
         return self.request.user.items.all()

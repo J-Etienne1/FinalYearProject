@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="item_list_heading mb-5">
+            <h1 class="fs-2">Welcome to the Login Page</h1>            
+        </div>  
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" class="btn btn-sm btn-success">        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

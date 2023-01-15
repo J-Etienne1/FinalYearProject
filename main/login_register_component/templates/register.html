@@ -14,7 +14,8 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {{form.as_p}}
-                    <input type="submit" class="btn btn-sm btn-success" value="Register" name="submit" >                
+                    <input type="submit" class="btn btn-sm btn-success" value="Register" name="submit" >  
+                    <a href="/login">Back</a>              
                 </form>          
              </div>
         </div>

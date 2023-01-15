@@ -37,7 +37,27 @@ PW: SuperSecure!123
 '''
 
 
+'''
+URL'S :
+127.0.0.1:8000/inventory/
+127.0.0.1:8000/inventory/1
+127.0.0.1:8000/inventory/1/edit
+127.0.0.1:8000/inventory/1/delete
+127.0.0.1:8000/login/
+127.0.0.1:8000/login/logout
+127.0.0.1:8000/login/register
 
+
+
+
+
+
+
+
+
+
+
+'''
 
 
 

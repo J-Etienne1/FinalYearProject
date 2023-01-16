@@ -39,3 +39,38 @@ class Register(CreateView):
 
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+The Register class is a subclass of Django's built-in CreateView, it sets the form to be used for registration to UserCreationForm, the template to be used for registration page to 'register.html' and the success URL to '/login/'.
+The get method in the Register class checks whether the user is already authenticated and redirects them to the login page if they are, otherwise it calls the parent class's get method to handle the request.
+'''

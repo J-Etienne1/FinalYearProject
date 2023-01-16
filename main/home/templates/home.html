@@ -6,37 +6,18 @@
 {% block content %}
 
 
+    <!-- create a row and col element -->
     <div class="row">
         <div class="col">
-            <div class="home-holder">  <!-- WHY HOME HOLDER, MAYBE HADER??? LOOK BACK IN VIDS-->
+            <!-- create a div element with class home-holder -->
+            <div class="home-holder"> <!-- display a heading --> <!-- WHY HOME HOLDER, MAYBE HADER??? LOOK BACK IN VIDS-->
                 <h1 class="fs-2">Welcome to the Home page</h1>
             </div>  
         </div>
     </div>    
 
-
+    <!-- display the current date and time -->
     <p>Today is {{ now|date:'F d, Y H:i' }}</p>
-    <!-- import of from datetime import datetime doesnt work with class HomePage in view find an alternative
-    <p>Today is {{ today }}</p>
-    -->
-
-
-
-    <!-- DONT NEED THIS BE KEEP FOR THE TIME BEING
-    <div class="row">
-        <div class="col">
-            <div class="home-holder">
-                <h1 class="fs-3">Hello</h1>
-                <p>Welcome to the Home page</p>
-                <a href="" class></a>
-            </div>
-        </div>
-    </div>
-    -->
-
-
-
-
-
+    
     
 {% endblock content %}

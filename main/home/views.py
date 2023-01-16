@@ -13,16 +13,13 @@ class HomePage(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
     login_url = '/login'
 
+    # override the get_context_data method to pass the current date and time to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
     
 
-'''
-def home(request):
-    return render(request, 'home.html', {'today': datetime.today()})
-'''
 
 
 class AuthorizedViews(LoginRequiredMixin, TemplateView):
@@ -35,4 +32,9 @@ class AuthorizedViews(LoginRequiredMixin, TemplateView):
 @login_required(login_url = '/admin') #change this to login/reg page when built  and add to each view for each component
 def authorized(request):
     return render(request, 'authorized.html', {})
+'''
+
+
+'''
+This code creates two class-based views for a home page and authorized views using Django's built-in TemplateView and LoginRequiredMixin. The HomePage class is using LoginRequiredMixin to ensure that the user is logged in before they can access the home page. The template_name attribute is used to specify which template to use for the view and the get_context_data method is overridden to pass the current date and time to the template using timezone.now().
 '''

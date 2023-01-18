@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     'inventory_component',
     'login_register_component',
     'calendar_component',
+    'finance_component',
 ]
 
 MIDDLEWARE = [

@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'home',
     'inventory_component',
     'login_register_component',
+    'calendar_component',
 ]
 
 MIDDLEWARE = [

@@ -5,9 +5,7 @@ from .import views
 
 
 
-#app_name = 'calendar_component'
-
-
+app_name = 'cal'
 urlpatterns = [
     #path('', views.index, name='index'),
     path('', views.CalendarView.as_view(), name="calendar"),

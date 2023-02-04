@@ -1,5 +1,9 @@
 from django.contrib import admin
-from calendar_component.models import Event
+from . import models
 
-# Register your models here.
-admin.site.register(Event)
+
+class EventsAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+
+
+admin.site.register(models.Event, EventsAdmin)

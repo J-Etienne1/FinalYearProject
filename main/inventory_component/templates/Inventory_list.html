@@ -30,12 +30,12 @@
                 </div>
             </div>
         <div class="col-md-5 py-3 d-flex align-items-center">
-        <a href="{% url 'item.detail' pk=item.id %}" class="btn btn-info btn-sm">Update</a>
+        <a href="{% url 'item.detail' pk=item.id %}" class="btn btn-info btn-sm btn-outline-dark">Update</a>
     </div>
         {% endfor %}
 
     <div class="text-center">
-    <a href="{% url 'item.new' %}" class="btn btn-info btn-sm">Add New Item</a>
+    <a href="{% url 'item.new' %}" class="btn btn-info btn-sm btn-outline-dark">Add New Item</a>
     </div>
 
 

@@ -7,26 +7,52 @@ Calendar
 
 {% block content %}
 
+<!-- Create a new row containing a single column -->
 <div class="row">
     <div class="col">
+        <!-- Add a heading for the page -->
         <div class="item_list_heading mb-5">
             <h1 class="fs-2">Welcome to the Calendar Page</h1>
         </div>
     </div>
 </div>
+
+<!-- Create another row containing a single column with a maximum width of 7 -->
 <div class="row">
     <div class="col-md-7 mx-auto">
+        <!-- Create a card element to display the calendar -->
         <div class="card">
+            <!-- Add a header for the card -->
             <div class="card-header">Calendar</div>
+            <!-- Add the body for the card -->
             <div class="card-body">
-                <div class="clearfix">
-                    <a class="btn btn-info left" href="{% url 'calendar_component:calendar' %}?{{ prev_month }}"> Previous Month </a>
-                    <a class="btn btn-info right" href="{% url 'calendar_component:calendar' %}?{{ next_month }}"> Next Month </a>
-                    <a class="btn btn-info right" href="{% url 'calendar_component:event_new' %}"> New Event </a>
+                <!-- Create a container element with the buttons for navigating the calendar -->
+                <div class="d-flex justify-content-between">
+                    <!-- Add the "Previous Month" button -->
+                    <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:calendar' %}?{{ prev_month }}">Previous Month</a>
+                    <!-- Create another container for the "New Event" button -->
+                    <div class="d-flex">
+                        <!-- Add the "New Event" button -->
+                        <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:event_new' %}">New Event</a>
+                    </div>
+                    <!-- Add the "Next Month" button -->
+                    <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:calendar' %}?{{ next_month }}">Next Month</a>
                 </div>
+                
+                <!-- Display the calendar -->
                 {{ calendar }}
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
+
+
+
+
+<!--
+This code defines a template for the calendar page. The template extends the base.html template and sets the page title to "Calendar". The template then uses bootstrap classes to create a layout for the page with two rows, each containing a single column.
+
+In the first row, a heading is displayed with the text "Welcome to the Calendar Page". In the second row, a card is created to display the calendar. The card has a header with the text "Calendar" and a body that contains the calendar, along with three buttons for navigating the calendar: "Previous Month", "New Event", and "Next Month". The buttons use URL templates to navigate to different pages within the calendar component.
+-->

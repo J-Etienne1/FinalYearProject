@@ -1,3 +1,5 @@
+
+
 from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 from .models import Event
@@ -7,7 +9,8 @@ class Calendar(HTMLCalendar):
 		self.year = year
 		self.month = month
 		super(Calendar, self).__init__()
-
+		
+        
 	# formats a day as a td
 	# filter events by day
 	def formatday(self, day, events):

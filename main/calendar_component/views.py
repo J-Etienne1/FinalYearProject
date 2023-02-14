@@ -1,3 +1,4 @@
+
 from datetime import datetime, timedelta, date
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -9,6 +10,7 @@ import calendar
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
+
 
 
 
@@ -58,6 +60,5 @@ def event(request, event_id=None):
         form.save()
         return HttpResponseRedirect(reverse('calendar_component:calendar'))
     return render(request, 'event.html', {'form': form})
-
 
 

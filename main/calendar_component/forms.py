@@ -6,9 +6,11 @@ from calendar_component.models import Event
 
 class EventForm(forms.ModelForm):
     completed = forms.BooleanField(required=False)
+    
 
     class Meta:
         model = Event
+        
         widgets = {
             'start_time': forms.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
             'end_time': forms.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),

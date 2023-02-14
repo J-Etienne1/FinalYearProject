@@ -7,26 +7,21 @@ Calendar
 
 {% block content %}
 
-<!-- Create a new row containing a single column -->
+
 <div class="row">
-    <div class="col">
-        <!-- Add a heading for the page -->
+    <div class="col">        
         <div class="item_list_heading mb-5">
             <h1 class="fs-2">Welcome to the Calendar Page</h1>
         </div>
     </div>
 </div>
 
-<!-- Create another row containing a single column with a maximum width of 7 -->
+
 <div class="row">
-    <div class="col-md-7 mx-auto">
-        <!-- Create a card element to display the calendar -->
-        <div class="card">
-            <!-- Add a header for the card -->
-            <div class="card-header">Calendar</div>
-            <!-- Add the body for the card -->
-            <div class="card-body">
-                <!-- Create a container element with the buttons for navigating the calendar -->
+    <div class="col-md-7 mx-auto">        
+        <div class="card">            
+            <div class="card-header">Calendar</div>            
+            <div class="card-body">                
                 <div class="d-flex justify-content-between">
                     <!-- Add the "Previous Month" button -->
                     <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:calendar' %}?{{ prev_month }}">Previous Month</a>

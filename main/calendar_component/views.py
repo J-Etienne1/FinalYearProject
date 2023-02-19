@@ -60,5 +60,3 @@ def event(request, event_id=None):
         form.save()
         return HttpResponseRedirect(reverse('calendar_component:calendar'))
     return render(request, 'event.html', {'form': form})
-
-

@@ -16,6 +16,7 @@ urlpatterns = [
     
     
     
+    
     #path('finance', include('finance_component.urls')),   
     
 ]

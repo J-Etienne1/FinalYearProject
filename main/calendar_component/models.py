@@ -22,13 +22,14 @@ class Booking(models.Model):
     materials_cost = models.DecimalField(max_digits=5, decimal_places=2)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    completed = models.BooleanField(default=False)
-
+    completed = models.BooleanField(default=False) 
+ 
+ 
 
     @property
     def get_html_url(self):
         url = reverse('calendar_component:event_edit', args=(self.id,))
-        return f'<a href="{url}"> {self.title} </a>'
+        return f'<a href="{url}"> {self.title} </a>' 
 
 
 
@@ -40,4 +41,4 @@ class Booking(models.Model):
         tel --> phone_number
         materials_needed --> materials_needed
         materials_cost --> materials_cost
-'''
+''' 

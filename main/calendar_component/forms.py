@@ -20,5 +20,5 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs): # when the form is created it will set the date and time
         super(BookingForm, self).__init__(*args, **kwargs)
-        self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
-        self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
+        self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',) 
+        self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',) 

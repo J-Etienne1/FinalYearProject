@@ -6,4 +6,4 @@ class EventsAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
 
-admin.site.register(models.Event, EventsAdmin)
+admin.site.register(models.Booking, EventsAdmin)

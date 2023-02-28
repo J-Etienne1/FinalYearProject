@@ -12,7 +12,7 @@ class Event(models.Model):
 
 
 
-class Event(models.Model):
+class Booking(models.Model):
     title = models.CharField(max_length=200)
     details = models.TextField()
     contact = models.CharField(max_length=200)

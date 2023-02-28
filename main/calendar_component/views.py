@@ -9,27 +9,28 @@ import calendar
 
 from .models import *
 from .utils import Calendar
-from .forms import EventForm
+from .forms import BookingForm
 
 
 
 
 
 class CalendarView(generic.ListView):
-    model = Event
+    model = Booking
     template_name = 'calendar.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         d = get_date(self.request.GET.get('month', None))
         cal = Calendar(d.year, d.month)
+        # Add the calendar and navigation links to the context dictionary
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
         return context
 
-def get_date(req_month):
+def get_date(req_month): #get back a requested month from a url or tkae current date
     if req_month:
         year, month = (int(x) for x in req_month.split('-'))
         return date(year, month, day=1)
@@ -49,14 +50,14 @@ def next_month(d):
     return month
 
 def event(request, event_id=None):
-    instance = Event()
-    if event_id:
-        instance = get_object_or_404(Event, pk=event_id)
-    else:
-        instance = Event()
+    instance = Booking()
+    if event_id: # grabs a existing booking if one exists
+        instance = get_object_or_404(Booking, pk=event_id)
+    else: # creats a new one if there isnt
+        instance = Booking()
 
-    form = EventForm(request.POST or None, instance=instance)
-    if request.POST and form.is_valid():
+    form = BookingForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid(): # making sure the booking form is valid
         form.save()
-        return HttpResponseRedirect(reverse('calendar_component:calendar'))
-    return render(request, 'event.html', {'form': form})
+        return HttpResponseRedirect(reverse('calendar_component:calendar')) # if ok get redirected to calander main page
+    return render(request, 'event.html', {'form': form}) #if not returns the form/ nothing gets saved

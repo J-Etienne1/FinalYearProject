@@ -37,7 +37,7 @@ def get_date(req_month): #get back a requested month from a url or tkae current 
     return datetime.today() 
 
 def prev_month(d): 
-    first = d.replace(day=1) 
+    first = d.replace(day=1) #gets the 1st day of the month
     prev_month = first - timedelta(days=1) 
     month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month) 
     return month  
@@ -52,7 +52,7 @@ def next_month(d):
  
 def event(request, event_id=None): 
     instance = Booking() 
-    if event_id: # grabs a existing booking if one exists
+    if event_id: # grabs a existing booking if one exists using a booking ID
         instance = get_object_or_404(Booking, pk=event_id)
     else: # creats a new one if there isnt
         instance = Booking() 

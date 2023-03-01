@@ -23,7 +23,7 @@ class CalendarView(generic.ListView):
         context = super().get_context_data(**kwargs) 
         d = get_date(self.request.GET.get('month', None)) 
         cal = Calendar(d.year, d.month) 
-        # Add the calendar and navigation links to the context dictionary 
+        # Add the calendar and navigation links 
         html_cal = cal.formatmonth(withyear=True) 
         context['calendar'] = mark_safe(html_cal) 
         context['prev_month'] = prev_month(d) 

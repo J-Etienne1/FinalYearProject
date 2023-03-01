@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col">
         <div class="item_list_heading mb-5">
-            <h1 class="fs-2">Welcome to the Event Page</h1>            
+            <h1 class="fs-2">Welcome to the Booking Page</h1>            
         </div>  
     </div>
 </div>
@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card">
-            <div class="card-header">Create/Edit an Event</div>
+            <div class="card-header">Create/Edit an Booking</div>
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
@@ -32,7 +32,15 @@
                    </div> -->
                    
                     <div class="row d-flex justify-content-center">
-                        <button type="submit" class="btn btn-sm btn-info w-25 btn-outline-dark">Save</button>
+                        <div class="col-6 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-center">
+                            {% if form.instance.pk %}
+                                <input type="submit" name="delete" value="Delete" class="btn btn-danger w-100">
+                            {% endif %}
+                        </div>
                     </div>
                 </form>
             </div>

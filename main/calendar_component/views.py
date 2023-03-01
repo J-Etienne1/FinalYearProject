@@ -50,15 +50,22 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
     return month 
  
-def event(request, event_id=None): 
-    instance = Booking() 
-    if event_id: # grabs a existing booking if one exists using a booking ID
-        instance = get_object_or_404(Booking, pk=event_id)
-    else: # creats a new one if there isnt
-        instance = Booking() 
+def event(request, event_id=None):
+    if event_id:
+        event = get_object_or_404(Booking, pk=event_id)
+    else:
+        event = Booking()
 
-    form = BookingForm(request.POST or None, instance=instance) 
-    if request.POST and form.is_valid(): # making sure the booking form is valid
-        form.save() 
-        return HttpResponseRedirect(reverse('calendar_component:calendar')) # if ok get redirected to calander main page
-    return render(request, 'event.html', {'form': form}) #if not returns the form/ nothing gets saved
+    if request.method == 'POST':
+        if 'delete' in request.POST:
+            event.delete()
+            return HttpResponseRedirect(reverse('calendar_component:calendar'))
+        else:
+            form = BookingForm(request.POST, instance=event)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse('calendar_component:calendar'))
+    else:
+        form = BookingForm(instance=event)
+
+    return render(request, 'event.html', {'form': form})

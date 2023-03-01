@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 '''
-class Event(models.Model):
+class Booking(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     start_time = models.DateTimeField()
@@ -30,6 +30,48 @@ class Booking(models.Model):
     def get_html_url(self):
         url = reverse('calendar_component:event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

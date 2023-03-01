@@ -28,6 +28,58 @@ class AuthorizedViews(LoginRequiredMixin, TemplateView):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''
 @login_required(login_url = '/admin') #change this to login/reg page when built  and add to each view for each component
 def authorized(request):

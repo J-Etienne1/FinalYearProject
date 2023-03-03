@@ -5,7 +5,7 @@ from django.utils import timezone
 # from django.contrib.auth.decorators import login_required : class based mixis takes care of this
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
-
+from calendar_component.models import Booking
 
 
 
@@ -17,6 +17,7 @@ class HomePage(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
+        context['events'] = Booking.objects.filter(completed=False)[:2]
         return context
     
 

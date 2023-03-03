@@ -19,7 +19,7 @@ class CalendarView(generic.ListView):
     model = Booking 
     template_name = 'calendar.html' 
 
-    def get_context_data(self, **kwargs): 
+    def get_context_data(self, **kwargs):  
         context = super().get_context_data(**kwargs) 
         d = get_date(self.request.GET.get('month', None)) 
         cal = Calendar(d.year, d.month) 
@@ -29,6 +29,7 @@ class CalendarView(generic.ListView):
         context['prev_month'] = prev_month(d) 
         context['next_month'] = next_month(d) 
         return context
+    
 
 def get_date(req_month): #get back a requested month from a url or tkae current date
     if req_month: 

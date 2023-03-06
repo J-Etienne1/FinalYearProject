@@ -30,7 +30,21 @@
                 </div>
             </div>
         <div class="col-md-5 py-3 d-flex align-items-center">
-        <a href="{% url 'item.detail' pk=item.id %}" class="btn btn-info btn-sm btn-outline-dark">View</a>
+
+        <!--
+        <div>
+            <a href="{% url 'item.detail' pk=item.id %}" class="btn btn-info btn-sm btn-outline-dark">View</a>
+        </div> 
+        -->
+        <!--    No need for the inventoy_detail.html - Keep it for now     -->
+
+        <div>
+            <a href="{% url 'item.update' pk=item.id %}" class="btn btn-sm btn-warning btn-outline-dark btn-block">Update</a>
+        </div>
+        <div>
+            <a href="{% url 'item.delete' pk=item.id %}" class="btn btn-sm btn-danger btn-outline-dark btn-block">Delete</a>
+        </div>
+        
     </div>
         {% endfor %}
 

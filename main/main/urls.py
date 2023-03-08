@@ -17,7 +17,8 @@ urlpatterns = [
     
     
     
-    path('finance', include('finance_component.urls')),   
+    path('finance', include('finance_component.urls')),  
+    path('payment/', include('payment_component.urls')), 
     
 ]
 

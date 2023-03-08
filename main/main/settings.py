@@ -63,6 +63,7 @@ URL'S :
 
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,6 +95,7 @@ INSTALLED_APPS = [
     'login_register_component',
     'calendar_component',
     'finance_component',
+    'payment_component',
 ]
 
 MIDDLEWARE = [
@@ -188,3 +190,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_REDIRECT_URL = '/'
+
+
+
+# Stripe Settings
+STRIPE_PUBLIC_KEY = os.environ.get('pk_test_51MaePkDhcRijS6ewfmHiSeujJ3r8bCmKd8rjwuGecW78lkQD30KOgIrXLGlewjhpzKQxYCtDUdWZPUV3VfEbsBLr00NlgMxUBv')
+STRIPE_SECRET_KEY = os.environ.get('sk_test_51MaePkDhcRijS6ew9XYy463jjZbdyHiuNnGbQzrTzB7F5GaCSFVbGarnYjoTk5e0A5KCQjr2QDgqrV3LZELovzz3001mHNrZ7X')

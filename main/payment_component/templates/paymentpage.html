@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Subscription Page{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="description">
+  <h3>One Time Payment for Lifetime Access to the App</h3>
+  <h5>$50.00</h5>
+</div>
+
+<form action="{% url 'checkout' %}" method="POST">
+{% csrf_token %}
+<button type="submit" id="checkout-button">Checkout</button>
+</form>
+
+
+
+
+{% endblock content %}

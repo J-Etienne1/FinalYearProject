@@ -71,8 +71,39 @@
   }
 
 
+
+
+
+  /*
+=====================================================
+      NavBar - 3D Button click
+*/
+.btn-3d-click:hover {background-color: #fff}
+
+.btn-3d-click:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
  
 
+
+  /*
+=====================================================
+      Inventory - Stuck Add New Item Button
+*/
+.col.text-end {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  top: 90px;
+}
+
+.mt-5 {
+  margin-top: 5rem; /* or any desired margin */
+  
+}
 
 
 

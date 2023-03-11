@@ -5,21 +5,12 @@ import stripe
 from django.conf import settings
 
 
-
 class paymentpage(TemplateView):
     template_name = 'paymentpage.html'
-
-
-class paymentfailed(TemplateView):
-    template_name = 'paymentfailed.html'
-
-
-
 
     
 # need to sort out my Stripe Env Variables so I dont have the secret key on display here
 stripe.api_key = 'sk_test_51MaePkDhcRijS6ew9XYy463jjZbdyHiuNnGbQzrTzB7F5GaCSFVbGarnYjoTk5e0A5KCQjr2QDgqrV3LZELovzz3001mHNrZ7X'
-
 
 '''
 
@@ -32,8 +23,6 @@ Test Card for Failed transaction
 4000000000000002
 
 '''
-
-
 class checkout(TemplateView):
     def get(self, request, *args, **kwargs):
         checkout_session = stripe.checkout.Session.create(

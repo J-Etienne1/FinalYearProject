@@ -51,22 +51,22 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
     return month 
  
-def event(request, event_id=None):
-    if event_id:
-        event = get_object_or_404(Booking, pk=event_id)
+def booking(request, booking_id=None):
+    if booking_id:
+        booking = get_object_or_404(Booking, pk=booking_id)
     else:
-        event = Booking()
+        booking = Booking()
 
     if request.method == 'POST':
         if 'delete' in request.POST:
-            event.delete()
+            booking.delete()
             return HttpResponseRedirect(reverse('calendar_component:calendar'))
         else:
-            form = BookingForm(request.POST, instance=event)
+            form = BookingForm(request.POST, instance=booking)
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(reverse('calendar_component:calendar'))
     else:
-        form = BookingForm(instance=event)
+        form = BookingForm(instance=booking)
 
-    return render(request, 'event.html', {'form': form})
+    return render(request, 'booking.html', {'form': form})

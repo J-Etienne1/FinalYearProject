@@ -45,15 +45,15 @@
               <!-- If user is authenticated show header with links to home, inventory, calendar and finance -->
               {% if user.is_authenticated %}
 
-              <a href="{% url 'home' %}" class="btn btn-outline-light">Home</a>
-              <a href="{% url 'inventory_list' %}" class="btn btn-outline-light">Inventory</a> <!-- url taken from inventory_component urls.py-->
+              <a href="{% url 'home' %}" class="btn btn-outline-light  btn-3d-click">Home</a>
+              <a href="{% url 'inventory_list' %}" class="btn btn-outline-light  btn-3d-click">Inventory</a> <!-- url taken from inventory_component urls.py-->
                 
-              <a href="{% url 'calendar_component:calendar' %}" class="btn btn-outline-light">Calendar</a>  
+              <a href="{% url 'calendar_component:calendar' %}" class="btn btn-outline-light  btn-3d-click">Calendar</a>  
               
               
-              <a href="{% url 'finance' %}" class="btn btn-outline-light me-3">Finance</a>  
+              <a href="{% url 'finance' %}" class="btn btn-outline-light  btn-3d-click">Finance</a>  
               
-              <a href="{% url 'logout' %}" class="btn btn-outline-light">Logout</a>
+              <a href="{% url 'logout' %}" class="btn btn-outline-light ml-6 btn-3d-click">Logout</a>
               
               {% else %}
                       

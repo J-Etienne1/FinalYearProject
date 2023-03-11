@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Event{% endblock title %}
+{% block title %}Booking{% endblock title %}
 
 {% block content %}
 
 <div class="row">
     <div class="col">
         <div class="item_list_heading mb-5">
-            <h1 class="fs-2">Welcome to the Booking Page</h1>            
+            <h1 class="fs-2">Welcome to the Job Booking Page</h1>            
         </div>  
     </div>
 </div>
@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card">
-            <div class="card-header">Create/Edit an Booking</div>
+            <div class="card-header">Create/Edit a Booking</div>
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
@@ -31,17 +31,21 @@
                       <input type="checkbox" name="completed" {% if form.completed.value %}checked{% endif %}> Completed 
                    </div> -->
                    
-                    <div class="row d-flex justify-content-center">
+                   <div class="row d-flex justify-content-center">
+                    {% if not form.instance.pk %}
+                        <div class="col-5 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
+                        </div>
+                    {% else %}
                         <div class="col-6 d-flex justify-content-center">
                             <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
                         </div>
-
+                
                         <div class="col-6 d-flex justify-content-center">
-                            {% if form.instance.pk %}
-                                <input type="submit" name="delete" value="Delete" class="btn btn-danger w-100">
-                            {% endif %}
+                            <input type="submit" name="delete" value="Delete" class="btn btn-danger w-100">
                         </div>
-                    </div>
+                    {% endif %}
+                </div>
                 </form>
             </div>
             <div class="card-footer">

@@ -11,8 +11,11 @@
                 {% csrf_token %}
                 <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
                 <p>this action cant be undone</p>
-                <input type="submit" class="btn btn-sm btn-danger" value="confirm">
+                <input type="submit" class="btn btn-sm btn-danger btn-outline-dark" value="confirm">
             </form>
+            <div>
+                <a href="{% url 'inventory_list' %}" class="btn btn-sm btn-primary btn-outline-dark">Back</a>
+            </div>
         </div>
 
     </div>
@@ -22,14 +25,3 @@
 {% endblock content %}
 
 
-
-<!--
-    <form action="" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="pk" value="{{ item.pk }}">
-                <input type="hidden" name="_method" value="delete">
-                <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
-                <p>this action cant be undone</p>
-                <input type="submit" name="submit" class="btn btn-sm btn-danger" value="confirm">
-            </form>
--->

@@ -49,6 +49,8 @@
         </div>
         <div>
             <a href="{% url 'item.delete' pk=item.id %}" class="btn btn-sm btn-danger btn-outline-dark btn-block">Delete</a>
+            <!--<a href="{% url 'item.delete' pk=item.id %}" class="btn btn-sm btn-danger btn-outline-dark btn-block" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>-->
+
         </div>
         
     </div>
@@ -59,16 +61,6 @@
 
 
 
-   <!--
-    <ul>
-        {% for item in items %}
-        <li>{{ item.item }}</li>        
-        <li>{{ item.description }}</li>        
-        <li>{{ item.quantity }}</li>
-        <br>
-        
-        {% endfor %}
-    </ul>
-    -->
+
 
 {% endblock content %}

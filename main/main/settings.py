@@ -25,19 +25,15 @@ PW: 123456
 
 ======================
 
-STANDARD USER'S
+STANDARD TEST USER'S
 
-usermane: jason
-PW: SuperSecure!123
+All Test user PWs - SuperSecure!123
 
-usermane: jason2
-PW: SuperSecure!123
 
-usermane: jason3
-PW: SuperSecure!123
 
-usermane: Test
-PW: SuperSecure!123
+
+
+
 
 '''
 

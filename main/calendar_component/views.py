@@ -2,7 +2,7 @@
 from datetime import datetime, timedelta, date 
 from django.shortcuts import render, get_object_or_404 
 from django.http import HttpResponse, HttpResponseRedirect 
-from django.views import generic 
+
 from django.urls import reverse 
 from django.utils.safestring import mark_safe 
 import calendar 
@@ -11,11 +11,11 @@ from .models import *
 from .utils import Calendar 
 from .forms import BookingForm 
 
+from django.views.generic import ListView
 
 
 
-
-class CalendarView(generic.ListView): 
+class CalendarView(ListView): 
     model = Booking 
     template_name = 'calendar.html' 
 

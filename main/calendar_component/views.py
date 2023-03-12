@@ -11,11 +11,12 @@ from .models import *
 from .utils import Calendar 
 from .forms import BookingForm 
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 
 
-class CalendarView(ListView): 
+class CalendarView(LoginRequiredMixin,ListView): 
     model = Booking 
     template_name = 'calendar.html' 
 

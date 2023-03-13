@@ -1,4 +1,8 @@
-
+'''     
+        DONT NOT EDIT OR DELETE
+        IF I CANT RESTRIT VIEWS PER USER JUST USE THIS VERSION
+        
+'''
 from datetime import datetime, timedelta, date 
 from django.shortcuts import render, get_object_or_404 
 from django.http import HttpResponse, HttpResponseRedirect 

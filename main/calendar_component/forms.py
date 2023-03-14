@@ -10,6 +10,7 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
+        exclude = ('user',)
         
         # setting up a widget for date/time
         widgets = {

@@ -10,6 +10,7 @@ from matplotlib.ticker import FuncFormatter
 from django.shortcuts import render
 import base64
 
+
 # Use Agg backend to support rendering to a file without a display
 import matplotlib
 matplotlib.use('Agg')

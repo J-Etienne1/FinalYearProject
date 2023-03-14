@@ -1,6 +1,6 @@
 from django.db import models 
 from django.urls import reverse 
-
+from django.contrib.auth.models import User
 
  
 class Booking(models.Model): 
@@ -14,6 +14,7 @@ class Booking(models.Model):
     start_time = models.DateTimeField() 
     end_time = models.DateTimeField() 
     completed = models.BooleanField(default=False) 
+    
     
  
  

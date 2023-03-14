@@ -14,6 +14,7 @@ class Booking(models.Model):
     start_time = models.DateTimeField() 
     end_time = models.DateTimeField() 
     completed = models.BooleanField(default=False) 
+    
  
  
 

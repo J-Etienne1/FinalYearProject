@@ -3,6 +3,7 @@
         IF I CANT RESTRIT VIEWS PER USER JUST USE THIS VERSION
         
 '''
+
 from datetime import datetime, timedelta, date 
 from django.shortcuts import render, get_object_or_404 
 from django.http import HttpResponse, HttpResponseRedirect 
@@ -75,3 +76,7 @@ def booking(request, booking_id=None):
         form = BookingForm(instance=booking)
 
     return render(request, 'booking.html', {'form': form})
+
+
+
+

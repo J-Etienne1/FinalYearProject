@@ -1,3 +1,9 @@
+
+'''     
+        DONT NOT EDIT OR DELETE
+        IF I CANT RESTRIT VIEWS PER USER JUST USE THIS VERSION
+        
+'''
 from django.urls import path
 from .import views
 
@@ -9,3 +15,6 @@ urlpatterns = [
     path('booking/edit/<int:booking_id>/', views.booking, name='booking_edit'),
   
 ]
+
+
+

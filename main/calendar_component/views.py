@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe 
 import calendar 
 
-from .models import * 
+from .models import Booking 
 from .utils import Calendar 
 from .forms import BookingForm 
 

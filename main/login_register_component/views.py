@@ -25,13 +25,13 @@ class Logout(LogoutView):
 class Register(CreateView):
     form_class = UserCreationForm
     template_name = 'register.html'
-    success_url = '/login/'
+    success_url = 'http://localhost:8000/login/'
 
     # after register get redirected to Login Page, want to maybe put in a page to say acc is registered and now need to log in, will also need to think about STRIPE integration
 
     def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('/login/')
+            return redirect('http://localhost:8000/login/')
         return super().get(request, *args, **kwargs)
 
 

@@ -92,19 +92,13 @@
 =====================================================
       Inventory - Stuck Add New Item Button to top of screen
 */
-.col.text-end {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: #fff;
-  top: 90px;
-}
 
-.mt-5 {
-  margin-top: 5rem; /* or any desired margin */
-  
+.add-new-item-btn-sticky {
+  position: fixed;
+  right: 75px;
+  top: 200px;
+  z-index: 100;
 }
-
 
 
 

@@ -29,7 +29,7 @@ STANDARD TEST USER'S
 
 All Test user PWs - SuperSecure!123
 jason1
-
+jason2
 
 
 
@@ -46,15 +46,6 @@ URL'S :
 127.0.0.1:8000/login/
 127.0.0.1:8000/login/logout
 127.0.0.1:8000/login/register
-
-
-
-
-
-
-
-
-
 
 
 '''

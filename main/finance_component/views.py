@@ -18,21 +18,21 @@ matplotlib.use('Agg')
 # Create a class-based view for finance
 class Finance(View):
     def get(self, request):
-        # Retrieve all events in the current year
+        # Get all the bookings in the current year
         events = Booking.objects.filter(start_time__year=datetime.now().year)
 
-        # Calculate income and expenses for each month in the current year
+        # Cal income and expenses for each month in the current year
         data = events.values('start_time__month').annotate(
             income=Sum('quote'),
             expense=Sum('materials_cost'),
         )
 
-        # Create lists of months, income, and expenses for plotting
+        # maeks a lists of months, income, and expenses for plotting
         months = [datetime(1900, x['start_time__month'], 1).strftime('%B') for x in data]
         in_values = [x['income'] for x in data]
         ex_values = [x['expense'] for x in data]
 
-        # Use Matplotlib to plot the income and expenses side by side
+        # Matplotlib then plots the income and expenses side by side
         fig, ax = plt.subplots()
         fig.set_size_inches(8, 6)
         fig.subplots_adjust(bottom=0.2)
@@ -53,7 +53,7 @@ class Finance(View):
         buf.seek(0)
         image_data = base64.b64encode(buf.getvalue()).decode()
 
-        # Render the finance.html template with the plot and the current datetime
+        # returns the finance.html template with the plot and the current datetime
         return render(request, 'finance.html', {'image': image_data, 'now': datetime.now()})
 
 

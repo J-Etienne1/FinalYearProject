@@ -1,27 +1,23 @@
-{% extends 'base.html' %}
 {% load static %}
 
-
-{% block content %}
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="confirm-message text-center">
-            <form action="" method="post">
-                {% csrf_token %}
-                <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
-                <p>this action cant be undone</p>
-                <input type="submit" class="btn btn-sm btn-danger btn-outline-dark" value="confirm">
-            </form>
-            <div>
-                <a href="{% url 'inventory_list' %}" class="btn btn-sm btn-primary btn-outline-dark">Back</a>
-            </div>
-        </div>
-
+<div class="modal fade" id="deleteModal-{{ item.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ item.id }}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel-{{ item.id }}">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>
+        <p>This action can't be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <form action="{% url 'item.delete' pk=item.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-danger btn-outline-dark" value="Confirm">
+        </form>
+      </div>
     </div>
+  </div>
 </div>
-
-
-{% endblock content %}
-
-

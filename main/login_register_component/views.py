@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
+from django.shortcuts import redirect
+from django.shortcuts import render
+
 
 
 # LOGIN VIEW
@@ -36,40 +37,6 @@ class Register(CreateView):
 
 
     
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 '''
 The Register class is a subclass of Django's built-in CreateView, it sets the form to be used for registration to UserCreationForm, the template to be used for registration page to 'register.html' and the success URL to '/login/'.

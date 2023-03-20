@@ -1,13 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from datetime import datetime
-from django.utils import timezone
 # from django.contrib.auth.decorators import login_required : class based mixis takes care of this
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from calendar_component.models import Booking
-
-
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.utils import timezone
+from datetime import datetime
 
 class HomePage(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
@@ -17,15 +15,14 @@ class HomePage(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
-        context['events'] = Booking.objects.filter(completed=False)[:2]
+        
+        # Filter events by the logged-in user
+        user_events = Booking.objects.filter(completed=False, user=self.request.user)
+        context['events'] = user_events[:2]
+        
         return context
+
     
-
-
-
-class AuthorizedViews(LoginRequiredMixin, TemplateView):
-    template_name = 'authorized.html'
-    login_url = '/admin'
 
 
 

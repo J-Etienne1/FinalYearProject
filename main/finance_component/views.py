@@ -1,14 +1,15 @@
-# Import necessary modules and models
-from django.db.models import Sum
-import io
-from datetime import datetime
-from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from calendar_component.models import Booking
-import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models import Sum
+import matplotlib.pyplot as plt
+from datetime import datetime
 import base64
+import io
+
 
 
 # Use Agg backend to support rendering to a file without a display
@@ -16,10 +17,12 @@ import matplotlib
 matplotlib.use('Agg')
 
 # Create a class-based view for finance
-class Finance(View):
+class Finance(View,LoginRequiredMixin):
+    login_url = '/login'
+
     def get(self, request):
-        # Get all the bookings in the current year
-        events = Booking.objects.filter(start_time__year=datetime.now().year)
+        # Get all the bookings in the current year for the logged-in user
+        events = Booking.objects.filter(start_time__year=datetime.now().year, user=self.request.user)
 
         # Cal income and expenses for each month in the current year
         data = events.values('start_time__month').annotate(

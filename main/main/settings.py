@@ -16,8 +16,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 '''
-
-SUPERUSER
+============================================
+SUPERUSER:
 
 usermane: admin
 email: admin@mail.com
@@ -25,29 +25,51 @@ PW: 123456
 
 ======================
 
-STANDARD TEST USER'S
+STANDARD TEST USER:
 
-All Test user PWs - SuperSecure!123
-jason1
-jason2
-jason3
-jason4
+User1
+User2
+User3
 
-
+All Test user PWs - Password!.0
+============================================
 '''
 
 
 '''
-URL'S :
-127.0.0.1:8000/inventory/
-127.0.0.1:8000/inventory/1
-127.0.0.1:8000/inventory/1/edit
-127.0.0.1:8000/inventory/1/delete
-127.0.0.1:8000/login/
-127.0.0.1:8000/login/logout
-127.0.0.1:8000/login/register
+============================================
+URL'S -
+
+HOME:
+http://localhost:8000/
+
+INVENTORY:
+http://localhost:8000/inventory/
+http://localhost:8000/inventory/new
+http://localhost:8000/inventory/37/edit
 
 
+CALENDAR:
+http://localhost:8000/calendar/
+http://localhost:8000/calendar/booking/edit/65/
+
+FINANCE:
+http://localhost:8000/finance/
+
+LOGOUT:
+http://localhost:8000/login/logout/
+
+LOGIN:
+http://localhost:8000/login/    - NO RESTRICTED ACCESS, NEED TO ACCES TO LOGIN
+
+PAYMENTS:
+http://localhost:8000/payment/  - NO RESTRICTED ACCESS, NEED TO ACCES TO LOGIN
+
+
+REGISTER:
+http://localhost:8000/login/register/   -   NO RESTRICTED ACCESS, NEED TO ACCES TO LOGIN, NOTHING TO STOP YOU GOING HERE WITHOUT PAYING
+
+============================================
 '''
 
 

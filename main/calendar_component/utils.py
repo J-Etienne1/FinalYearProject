@@ -33,8 +33,14 @@ class Calendar(HTMLCalendar):
 
 	# formats a month as a table
 	# filter bookings by year and month
-	def formatmonth(self, withyear=True): 
-		bookings = Booking.objects.filter(start_time__year=self.year, start_time__month=self.month) # pulls the events for a month/year
+	def formatmonth(self, withyear=True, bookings=None):
+		if bookings is None:
+			bookings = Booking.objects.filter(start_time__year=self.year, start_time__month=self.month)
+		else:
+			bookings = bookings.filter(start_time__year=self.year, start_time__month=self.month)
+
+    
+
 
 
 		# Build the HTML for the calendar table by calling formatweek() for each week in the month

@@ -1,11 +1,11 @@
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.shortcuts import render
 from .models import Inventory
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
-
 from .forms import ItemForm
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 
 class InventoryList(LoginRequiredMixin, ListView):
@@ -32,7 +32,6 @@ class InventoryItemDetail(LoginRequiredMixin, DetailView):
 
 
 
-# Used to CREATE a New Inventory Item and add to DB this is an update of the previous CreateItem as there was a bug when adding a Item when you loggeg back in
 class CreateItem(LoginRequiredMixin, CreateView):
     model = Inventory    
     template_name = "inventory_add.html"
@@ -47,8 +46,6 @@ class CreateItem(LoginRequiredMixin, CreateView):
 
 
 
-
-# Used to UPDATE an Item that is in the Inventory DB
 class UpdateItem(LoginRequiredMixin, UpdateView):
     model = Inventory 
     success_url = '/inventory/' 
@@ -63,7 +60,7 @@ class UpdateItem(LoginRequiredMixin, UpdateView):
 
 
 
-# Used to DELETE an Item that is in the Inventory DB
+
 class DeleteItem(LoginRequiredMixin, DeleteView):
     model = Inventory      
     success_url = '/inventory/'

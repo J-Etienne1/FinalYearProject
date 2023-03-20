@@ -4,20 +4,24 @@
         
 '''
 
-from datetime import datetime, timedelta, date 
-from django.shortcuts import render, get_object_or_404 
+'''
+from django.shortcuts import render, get_object_or_404, redirect 
 from django.http import HttpResponse, HttpResponseRedirect 
-
-from django.urls import reverse 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.decorators.http import require_POST
+from datetime import datetime, timedelta, date 
 from django.utils.safestring import mark_safe 
-import calendar 
-
+from django.views.generic import ListView
+from django.urls import reverse 
+from .forms import BookingForm 
 from .models import Booking 
 from .utils import Calendar 
-from .forms import BookingForm 
+import calendar 
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
+
+
+
+
 
 
 
@@ -80,4 +84,94 @@ def booking(request, booking_id=None):
 
 
 
+@require_POST
+def delete_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    booking.delete()
+    return redirect('calendar_component:calendar')
+'''
 
+
+
+
+
+from django.shortcuts import render, get_object_or_404, redirect 
+from django.http import HttpResponse, HttpResponseRedirect 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.decorators.http import require_POST
+from datetime import datetime, timedelta, date 
+from django.utils.safestring import mark_safe 
+from django.views.generic import ListView
+from django.urls import reverse 
+from .forms import BookingForm 
+from .models import Booking 
+from .utils import Calendar 
+import calendar 
+
+
+class CalendarView(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = 'calendar.html'
+    login_url = '/login'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        d = get_date(self.request.GET.get('month', None))
+        cal = Calendar(d.year, d.month)
+
+        # Filter bookings by the logged-in user
+        user_bookings = Booking.objects.filter(user=self.request.user)
+
+        html_cal = cal.formatmonth(withyear=True, bookings=user_bookings)
+        context['calendar'] = mark_safe(html_cal)
+        context['prev_month'] = prev_month(d)
+        context['next_month'] = next_month(d)
+        return context
+
+    
+
+def get_date(req_month): #get back a requested month from a url or tkae current date
+    if req_month: 
+        year, month = (int(x) for x in req_month.split('-')) 
+        return date(year, month, day=1) 
+    return datetime.today() 
+
+def prev_month(d): 
+    first = d.replace(day=1) #gets the 1st day of the month
+    prev_month = first - timedelta(days=1) 
+    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month) 
+    return month  
+
+
+def next_month(d): 
+    days_in_month = calendar.monthrange(d.year, d.month)[1] 
+    last = d.replace(day=days_in_month) 
+    next_month = last + timedelta(days=1) 
+    month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
+    return month 
+ 
+def booking(request, booking_id=None):
+    if booking_id:
+        booking = get_object_or_404(Booking, pk=booking_id, user=request.user)  # Ensure the booking belongs to the current user
+    else:
+        booking = Booking()
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user  # Associate the booking with the current user
+            booking.save()
+            return HttpResponseRedirect(reverse('calendar_component:calendar'))
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(request, 'booking.html', {'form': form})
+
+
+
+@require_POST
+def delete_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    booking.delete()
+    return redirect('calendar_component:calendar')

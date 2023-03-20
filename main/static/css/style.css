@@ -1,15 +1,10 @@
 
 
-/* If I need to override or tweak Bootstrap */
-
 /*
-.item-li{
-    color: red;
-}
+=====================================================
+      Calendar
 */
 
-
-/* CSS isnt been picked up anymore for some reason */
 
 .calendar {
     width: 98%;
@@ -74,7 +69,7 @@
 
 
 
-  /*
+/*
 =====================================================
       NavBar - 3D Button click
 */
@@ -88,7 +83,7 @@
  
 
 
-  /*
+/*
 =====================================================
       Inventory - Stuck Add New Item Button to top of screen
 */
@@ -102,4 +97,26 @@
 
 
 
+/*
+=====================================================
+      Inventory - jump to the top of the inventoy list page
+*/
+
+#jumpToTop {
+  position: fixed;
+  right: 75px;
+  bottom: 100px;
+  z-index: 100;
   
+}
+
+
+/*
+=====================================================
+      Inventory - Update button padding to the right
+*/
+.update-button-right-padding {
+  margin-right: 8px; 
+}
+
+

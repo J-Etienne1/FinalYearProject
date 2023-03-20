@@ -14,6 +14,7 @@ class Booking(models.Model):
     start_time = models.DateTimeField() 
     end_time = models.DateTimeField() 
     completed = models.BooleanField(default=False) 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     
     
  

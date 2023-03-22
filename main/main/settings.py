@@ -15,7 +15,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 
+
+
 '''
+============================================
 ============================================
 SUPERUSER:
 
@@ -23,7 +26,7 @@ usermane: admin
 email: admin@mail.com
 PW: 123456
 
-======================
+
 
 STANDARD TEST USER:
 
@@ -34,14 +37,18 @@ User3
 
 All Test user PWs - Password!.0
 ============================================
+============================================
 '''
 
-'''
-PC UPDATE to GITHIB- check if on PC later
+
+
+
+
+
+
 
 '''
-
-'''
+============================================
 ============================================
 URL'S -
 
@@ -74,6 +81,7 @@ http://localhost:8000/payment/  - NO RESTRICTED ACCESS, NEED TO ACCES TO LOGIN
 REGISTER:
 http://localhost:8000/login/register/   -   NO RESTRICTED ACCESS, NEED TO ACCES TO LOGIN, NOTHING TO STOP YOU GOING HERE WITHOUT PAYING
 
+============================================
 ============================================
 '''
 

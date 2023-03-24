@@ -4,7 +4,6 @@ from .import views
 urlpatterns = [
     path('', views.InventoryList.as_view(), name="inventory_list"),   
     path('<int:pk>', views.InventoryItemDetail.as_view(), name="item.detail"),
-    #No need for Inventoy_detail.html so can remove the edit path views.InventoryItemDetail in the line above -- will keep for now  
     path('<int:pk>/edit', views.UpdateItem.as_view(), name="item.update"),   
     path('<int:pk>/delete', views.DeleteItem.as_view(), name="item.delete"),   
     path('new', views.CreateItem.as_view(), name="item.new")

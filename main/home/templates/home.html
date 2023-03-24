@@ -6,51 +6,43 @@
 {% block content %}
 
 
-    <!-- create a row and col element -->
-    <div class="row">
-        <div class="col">
-            <!-- create a div element with class home-holder -->
-            <div class="home-holder"> <!-- display a heading --> <!-- WHY HOME HOLDER, MAYBE HADER??? LOOK BACK IN VIDS-->
-                <h1 class="fs-2">Welcome to the Home page</h1>
-            </div>  
-        </div>
-    </div>    
-
+    
+<div>
     <!-- display the current date and time -->
-    <p>Today is {{ now|date:'F d, Y H:i' }}</p>
+    <h3>Today is {{ now|date:'F d, Y H:i' }}</h3>
+</div>
 
 
+<div>
+    <h4>Current and Upcoming Jobs:</h4>
+</div>
 
-    <div class="flex-start">
-        <h4>Current and Upcoming Jobs:</h4>
-    </div>
-
-    <div>
-        {% for event in events %}
-            <div class="col-md-8 py-3">
-                <div class="card">
-                    <div class="card-header text-center">
-                        {{ event.title }}
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <br> <span class="text-left"><strong> Details: </strong> {{ event.details }}</span>
-                                <br> <span class="text-left"><strong> Contact: </strong> {{ event.contact }}</span>
-                                <br> <span class="text-left"><strong> Tel: </strong> {{ event.phone_number }}</span>
-                                <br> <span class="text-left"><strong> Quote: </strong> &euro; {{ event.quote }}</span>
-                                <br> <span class="text-left"><strong> Materials Needed: </strong> {{ event.materials_needed }}</span>
-                                <br> <span class="text-left"><strong> Material Cost: </strong> &euro; {{ event.materials_cost }} </span>
-                                <br> <span class="text-left"><strong> Start Time: </strong> {{ event.start_time }}</span>
-                                <br> <span class="text-left"><strong> End Time: </strong> {{ event.end_time }}</span>
-                            </br>
-                        </ul>
-                    </div>
-                </div>                
-            </div>
-        {% endfor %}
-        
-    </div>
+<div>
+    {% for event in events %}
+        <div class="col-md-8 py-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    {{ event.title }}
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <br> <span class="text-left"><strong> Details: </strong> {{ event.details }}</span>
+                            <br> <span class="text-left"><strong> Contact: </strong> {{ event.contact }}</span>
+                            <br> <span class="text-left"><strong> Tel: </strong> {{ event.phone_number }}</span>
+                            <br> <span class="text-left"><strong> Quote: </strong> &euro; {{ event.quote }}</span>
+                            <br> <span class="text-left"><strong> Materials Needed: </strong> {{ event.materials_needed }}</span>
+                            <br> <span class="text-left"><strong> Material Cost: </strong> &euro; {{ event.materials_cost }} </span>
+                            <br> <span class="text-left"><strong> Start Time: </strong> {{ event.start_time }}</span>
+                            <br> <span class="text-left"><strong> End Time: </strong> {{ event.end_time }}</span>
+                        </br>
+                    </ul>
+                </div>
+            </div>                
+        </div>
+    {% endfor %}
+    
+</div>
     
     
 {% endblock content %}

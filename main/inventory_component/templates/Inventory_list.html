@@ -5,54 +5,49 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col">
-            <div class="item_list_heading mb-5">
-                <h1 class="fs-2">Welcome to the Inventory Page</h1>
-                <p class="fs-5">These are the Inventory Items</p>
-            </div>  
-        </div>
-    </div>
 
-        
+
+<div>
     <a href="{% url 'item.new' %}" class="btn btn-info btn-sm btn-outline-dark add-new-item-btn-sticky">Add New Item</a>    
+</div>
 
-    <div class="row">
-        {% for item in items %}
-        	<div class="col-md-7 py-3">
-                <div class="card">
-                    <div class="card-header">
-                        {{ item.item }}
-                    </div>
-                    <div class="card-body ">
-                        {{ item.description }}
-                    </div>
-                    <div class="card-footer">
-                        Quantity : {{ item.quantity }}  
-                    </div>           
-                </div>
-            </div>
-        <div class="col-md-5 py-3 d-flex align-items-center">
 
-        <div>
-            <a href="{% url 'item.update' pk=item.id %}" class="btn btn-sm btn-warning btn-outline-dark btn-block update-button-right-padding">Update</a>
-
-        </div>
-        <div>
-            <button type="button" class="btn btn-sm btn-danger btn-outline-dark btn-block" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ item.id }}">Delete</button>
-        </div>
-        
-    </div>
-        {% endfor %}
-    </div>
-
+<div class="row">
     {% for item in items %}
-        {% include 'inventory_delete.html' %}
-    {% endfor %}
+        <div class="col-md-7 py-3">
+            <div class="card">
+                <div class="card-header">
+                    {{ item.item }}
+                </div>
+                <div class="card-body ">
+                    {{ item.description }}
+                </div>
+                <div class="card-footer">
+                    Quantity : {{ item.quantity }}  
+                </div>           
+            </div>
+        </div>
+<div class="col-md-5 py-3 d-flex align-items-center">
+
+<div>
+    <a href="{% url 'item.update' pk=item.id %}" class="btn btn-sm btn-warning btn-outline-dark btn-block update-button-right-padding">Update</a>
+</div>
+
+<div>
+    <button type="button" class="btn btn-sm btn-danger btn-outline-dark btn-block" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ item.id }}">Delete</button>
+</div>
+
+</div>
+{% endfor %}
+</div>
+
+{% for item in items %}
+{% include 'inventory_delete.html' %}
+{% endfor %}
 
 
-    <button id="jumpToTop" class="btn btn-info btn-sm btn-outline-dark" title="Back to top" onclick="scrollTopFunction()">Back to top</button>
-    
+<button id="jumpToTop" class="btn btn-info btn-sm btn-outline-dark" title="Back to top" onclick="scrollTopFunction()">Back to top</button>
+
 
 
     

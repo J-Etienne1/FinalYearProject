@@ -11,9 +11,9 @@
 <div class="row justify-content-center">
   <div class="col-md-8">
       <div class="card">
-        <h4 class='card-header text-center'>A One Time Subscription Payment for Lifetime Access to the App</h3>
-        <h5 class='card-body text-center'>€50.00</h5>
-        <div class='card-footer text-center'>
+        <h4 class="card-header text-center">A One Time Subscription Payment for Lifetime Access to the App</h3>
+        <h5 class="card-body text-center">€50.00</h5>
+        <div class="card-footer text-center">
           <form action="{% url 'checkout' %}" method="POST">
             {% csrf_token %}
             <button type="submit" id="checkout-button">Checkout</button>

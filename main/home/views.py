@@ -17,8 +17,8 @@ class HomePage(LoginRequiredMixin, TemplateView):
         context['now'] = timezone.now()
         
         # Filter events by the logged-in user
-        user_events = Booking.objects.filter(completed=False, user=self.request.user)
-        context['events'] = user_events[:2]
+        user_bookings = Booking.objects.filter(completed=False, user=self.request.user)
+        context['bookings'] = user_bookings[:2]
         
         return context
 

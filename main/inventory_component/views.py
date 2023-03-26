@@ -22,7 +22,6 @@ class InventoryList(LoginRequiredMixin, ListView):
 class InventoryItemDetail(LoginRequiredMixin, DetailView):
     model = Inventory
     context_object_name = "item"
-    template_name = "inventory_detail.html"
     login_url = '/login'
 
     def get_queryset(self):

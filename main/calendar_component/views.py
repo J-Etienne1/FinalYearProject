@@ -116,16 +116,16 @@ class CalendarView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
+        year_month = get_date(self.request.GET.get('month', None))
+        cal = Calendar(year_month.year, year_month.month)
 
         # Filter bookings by the logged-in user
         user_bookings = Booking.objects.filter(user=self.request.user)
 
         html_cal = cal.formatmonth(withyear=True, bookings=user_bookings)
         context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
+        context['previous_month'] = previous_month(year_month)
+        context['next_month'] = next_month(year_month)
         return context
 
     
@@ -136,16 +136,16 @@ def get_date(req_month): #get back a requested month from a url or tkae current 
         return date(year, month, day=1) 
     return datetime.today() 
 
-def prev_month(d): 
-    first = d.replace(day=1) #gets the 1st day of the month
-    prev_month = first - timedelta(days=1) 
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month) 
+def previous_month(year_month): 
+    first = year_month.replace(day=1) #gets the 1st day of the month
+    previous_month = first - timedelta(days=1) 
+    month = 'month=' + str(previous_month.year) + '-' + str(previous_month.month) 
     return month  
 
 
-def next_month(d): 
-    days_in_month = calendar.monthrange(d.year, d.month)[1] 
-    last = d.replace(day=days_in_month) 
+def next_month(year_month): 
+    days_in_month = calendar.monthrange(year_month.year, year_month.month)[1] 
+    last = year_month.replace(day=days_in_month) 
     next_month = last + timedelta(days=1) 
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
     return month 

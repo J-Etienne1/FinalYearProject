@@ -18,23 +18,23 @@
 </div>
 
 <div>
-    {% for event in events %}
+    {% for booking in bookings %}
         <div class="col-md-8 py-3">
             <div class="card">
                 <div class="card-header text-center">
-                    {{ event.title }}
+                    {{ booking.title }}
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <br> <span class="text-left"><strong> Details: </strong> {{ event.details }}</span>
-                            <br> <span class="text-left"><strong> Contact: </strong> {{ event.contact }}</span>
-                            <br> <span class="text-left"><strong> Tel: </strong> {{ event.phone_number }}</span>
-                            <br> <span class="text-left"><strong> Quote: </strong> &euro; {{ event.quote }}</span>
-                            <br> <span class="text-left"><strong> Materials Needed: </strong> {{ event.materials_needed }}</span>
-                            <br> <span class="text-left"><strong> Material Cost: </strong> &euro; {{ event.materials_cost }} </span>
-                            <br> <span class="text-left"><strong> Start Time: </strong> {{ event.start_time }}</span>
-                            <br> <span class="text-left"><strong> End Time: </strong> {{ event.end_time }}</span>
+                            <br> <span class="text-left"><strong> Details: </strong> {{ booking.details }}</span>
+                            <br> <span class="text-left"><strong> Contact: </strong> {{ booking.contact }}</span>
+                            <br> <span class="text-left"><strong> Tel: </strong> {{ booking.phone_number }}</span>
+                            <br> <span class="text-left"><strong> Quote: </strong> &euro; {{ booking.quote }}</span>
+                            <br> <span class="text-left"><strong> Materials Needed: </strong> {{ booking.materials_needed }}</span>
+                            <br> <span class="text-left"><strong> Material Cost: </strong> &euro; {{ booking.materials_cost }} </span>
+                            <br> <span class="text-left"><strong> Start Time: </strong> {{ booking.start_time }}</span>
+                            <br> <span class="text-left"><strong> End Time: </strong> {{ booking.end_time }}</span>
                         </br>
                     </ul>
                 </div>

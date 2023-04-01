@@ -1,4 +1,55 @@
 
+/*
+=====================================================
+      NavBar - 3D Button click
+*/
+.btn-3d-click:hover {background-color: #fff}
+
+.btn-3d-click:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+
+/*
+=====================================================
+      Inventory - Stick Add New Item Button to top right of screen
+*/
+
+.add-new-item-btn-sticky {
+  position: fixed;
+  right: 75px;
+  top: 200px;
+  z-index: 100;
+}
+
+
+
+/*
+=====================================================
+      Inventory - Stick jump to the top of the inventoy list button at the bottom right of the screen
+*/
+
+#jumpToTop {
+  position: fixed;
+  right: 75px;
+  bottom: 100px;
+  z-index: 100;
+  
+}
+
+
+/*
+=====================================================
+      Inventory - Update button padding to the right on inventoy list page
+*/
+.update-button-right-padding {
+  margin-right: 8px; 
+}
+
 
 /*
 =====================================================
@@ -69,54 +120,7 @@
 
 
 
-/*
-=====================================================
-      NavBar - 3D Button click
-*/
-.btn-3d-click:hover {background-color: #fff}
-
-.btn-3d-click:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
  
 
-
-/*
-=====================================================
-      Inventory - Stuck Add New Item Button to top of screen
-*/
-
-.add-new-item-btn-sticky {
-  position: fixed;
-  right: 75px;
-  top: 200px;
-  z-index: 100;
-}
-
-
-
-/*
-=====================================================
-      Inventory - jump to the top of the inventoy list button at the bottom of the inventoy list page
-*/
-
-#jumpToTop {
-  position: fixed;
-  right: 75px;
-  bottom: 100px;
-  z-index: 100;
-  
-}
-
-
-/*
-=====================================================
-      Inventory - Update button padding to the right on inventoy list page
-*/
-.update-button-right-padding {
-  margin-right: 8px; 
-}
 
 

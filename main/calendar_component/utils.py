@@ -1,8 +1,6 @@
 
-
-from datetime import datetime, timedelta 
 from calendar import HTMLCalendar 
-from .models import Booking
+
 
 class Calendar(HTMLCalendar): 
 	def __init__(self, year=None, month=None): 
@@ -11,43 +9,45 @@ class Calendar(HTMLCalendar):
 		super(Calendar, self).__init__() 
 		
         
-	# formats a day as a table cell that can have a list of bookings for a day	
+	# display a day on the on the calendar and any bookings on a day 
 	def formatday(self, day, bookings): 
-		bookings_per_day = bookings.filter(start_time__day=day) # filter bookings by day
-		d = '' 
+		bookings_per_day = bookings.filter(start_time__day=day)
+		# create a link for booking	
+		days_bookings = '' 
 		for booking in bookings_per_day: 
-			d += f'<li> {booking.get_html_url} </li>' 
+			days_bookings += f'<li> {booking.get_html_url} </li>' 
 
-		# If the day is part of the current month, include it in the table cell with the event list
-        # Otherwise, return an empty table cell
+		# show the day and the link for any bookings 
 		if day != 0: 
-			return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>" 
+			return f"<td><span class='date'>{day}</span><ul> {days_bookings} </ul></td>" 
 		return '<td></td>' 
  
-	# formats a week as a Table row that wil haev table cells for each day
+
+
+
+	# formats a week on the on the calendar and any bookings
 	def formatweek(self, theweek, bookings): 
 		week = '' 
+		# add each day of a week and display it
 		for d, weekday in theweek: 
 			week += self.formatday(d, bookings) 
 		return f'<tr> {week} </tr>' 
+	
 
-	# formats a month as a table
-	# filter bookings by year and month
+
+	# formats a month on the on the calendar and any bookings
 	def formatmonth(self, withyear=True, bookings=None):
-		if bookings is None:
-			bookings = Booking.objects.filter(start_time__year=self.year, start_time__month=self.month)
-		else:
-			bookings = bookings.filter(start_time__year=self.year, start_time__month=self.month)
-
-    
+		bookings = bookings.filter(start_time__year=self.year, start_time__month=self.month)
 
 
-
-		# Build the HTML for the calendar table by calling formatweek() for each week in the month
+		# table for the calendar
 		cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n' 
+		# month title
 		cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n' 
+		# day title
 		cal += f'{self.formatweekheader()}\n' 
-		for week in self.monthdays2calendar(self.year, self.month): 
+		# list the weeks in the month and returns a formatted table of days of the week and bookings
+		for week in self.monthdays2calendar(self.year, self.month):
 			cal += f'{self.formatweek(week, bookings)}\n' 
 		return cal 
  

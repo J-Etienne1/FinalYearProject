@@ -1,35 +1,19 @@
-
-
-from django import forms
+from django.forms import ModelForm,TextInput,Textarea
 from .models import Inventory
 
-
-
-
-class ItemForm(forms.ModelForm):
+class ItemForm(ModelForm):
     class Meta:
         model = Inventory
-        fields = ('item', 'description', 'quantity')        
+        fields = ('item', 'description', 'quantity')
+        # set up widgets        
         widgets = {
-            'item': forms.TextInput(attrs={'class': 'form-control my-3'}),
-            'description': forms.Textarea(attrs={'class': 'form-control my-3'}),
-            'quantity': forms.TextInput(attrs={'class': 'form-control my-3'})
+            'item': TextInput(attrs={'class': 'form-control my-3'}),
+            'description': Textarea(attrs={'class': 'form-control my-3'}),
+            'quantity': TextInput(attrs={'class': 'form-control my-3'})
         }
-        # If I want to update the labels for  Item, Description, Quantity
+        # adding labels so they are displayed when the form is displayed
         labels = {
             'item': 'Item Name',
             'description': 'Item Description',
             'quantity': 'Item Quantity'
         }
-'''
-# USE THIS IF WANT TO ADD SOME ERROR MESSAGE AND CONTROL WHAT WILL BE ACCEPTED IN AN INPUT FIELD I.E TITLE MUST BE iTEM
-    def clean_title(self):
-        item = self.cleaned_data('item')
-        if 'Item name' not in item
-            raise forms.validationError('Item must be included the Item field')
-        return item
-
-        
-
-        
-'''

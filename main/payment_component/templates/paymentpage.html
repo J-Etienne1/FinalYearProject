@@ -16,6 +16,7 @@
         <div class="card-footer text-center">
           <form action="{% url 'checkout' %}" method="POST">
             {% csrf_token %}
+            
             <button type="submit" id="checkout-button">Checkout</button>
             </form>
         </div>

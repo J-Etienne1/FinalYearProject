@@ -33,7 +33,9 @@ STANDARD TEST USER:
 User1
 User2
 User3
-
+User40
+User50
+User60
 
 All Test user PWs - Password!.0
 ============================================
@@ -219,6 +221,6 @@ LOGIN_REDIRECT_URL = '/'
 
 
 
-# Stripe Settings
+# Stripe Keys
 STRIPE_PUBLIC_KEY = os.environ.get('pk_test_51MaePkDhcRijS6ewfmHiSeujJ3r8bCmKd8rjwuGecW78lkQD30KOgIrXLGlewjhpzKQxYCtDUdWZPUV3VfEbsBLr00NlgMxUBv')
 STRIPE_SECRET_KEY = os.environ.get('sk_test_51MaePkDhcRijS6ew9XYy463jjZbdyHiuNnGbQzrTzB7F5GaCSFVbGarnYjoTk5e0A5KCQjr2QDgqrV3LZELovzz3001mHNrZ7X')

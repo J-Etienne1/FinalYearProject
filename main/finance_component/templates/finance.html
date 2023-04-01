@@ -7,11 +7,12 @@
 
 {% block content %}
 
-<h2>Income vs Expenses for {{ now|date:'Y' }} </h2>
+<h2>Income vs Expenses for {{ current_year|date:'Y' }} </h2>
 
 <div class="container-fluid">    
     <div class="text-center">
-        <img src="data:image/png;base64,{{ image|safe }}" alt="Income vs Expenses" class="img-fluid">
+        <!-- renders the graph -->
+        <img src="data:image/png;base64,{{ finance_bar_graph|safe }}" alt="Income vs Expenses" class="img-fluid">
     </div>
 </div>      
     

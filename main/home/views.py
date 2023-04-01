@@ -1,4 +1,3 @@
-# from django.contrib.auth.decorators import login_required : class based mixis takes care of this
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from calendar_component.models import Booking
@@ -9,14 +8,14 @@ from datetime import datetime
 
 class HomePage(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
-    login_url = '/login'
+    login_url = '/login' # if user is not logged in and trys to access home.html they are redirected to the login page
 
     # override the get_context_data method to pass the current date and time to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
+        context['current_date_time'] = timezone.now() # gets the current date, year and time
         
-        # Filter events by the logged-in user
+        # makes sure a user only sees their own booking and that the 1st two bookings where completed is false are displayed on the homepage
         user_bookings = Booking.objects.filter(completed=False, user=self.request.user)
         context['bookings'] = user_bookings[:2]
         
@@ -24,67 +23,3 @@ class HomePage(LoginRequiredMixin, TemplateView):
 
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-@login_required(login_url = '/admin') #change this to login/reg page when built  and add to each view for each component
-def authorized(request):
-    return render(request, 'authorized.html', {})
-'''
-
-
-'''
-This code creates two class-based views for a home page and authorized views using Django's built-in TemplateView and LoginRequiredMixin. The HomePage class is using LoginRequiredMixin to ensure that the user is logged in before they can access the home page. The template_name attribute is used to specify which template to use for the view and the get_context_data method is overridden to pass the current date and time to the template using timezone.now().
-'''

@@ -19,11 +19,11 @@
                     </div>
                                 
                    <div class="row d-flex justify-content-center">
-                    {% if not form.instance.pk %}
+                    {% if not form.instance.pk %} <!-- if there is no bookingid only the save button will appear-->
                         <div class="col-5 d-flex justify-content-center">
                             <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
                         </div>
-                    {% else %}
+                    {% else %} <!-- if there is a bookingid the save and delete buttons will appear-->
                         <div class="col-6 d-flex justify-content-center">
                             <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
                         </div>
@@ -42,6 +42,7 @@
     </div>
 </div>
 
+<!-- if the is a bookingid the delete button will display the confirm delete model from booking_delete.html   -->
 {% if form.instance.pk %}
     {% include 'booking_delete.html' %}
 {% endif %}

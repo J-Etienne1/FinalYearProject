@@ -6,12 +6,12 @@
 {% block content %}
 
 
-
+<!-- button to add new item to the list that is held in positon as the page is scrolled through-->
 <div>
     <a href="{% url 'item.new' %}" class="btn btn-info btn-sm btn-outline-dark add-new-item-btn-sticky">Add New Item</a>    
 </div>
 
-
+<!-- get every item-->
 <div class="row">
     {% for item in items %}
         <div class="col-md-7 py-3">
@@ -41,12 +41,13 @@
 {% endfor %}
 </div>
 
+<!-- if the is a itemid the delete button will display the confirm delete model from inventory_delete.html   -->
 {% for item in items %}
-{% include 'inventory_delete.html' %}
+    {% include 'inventory_delete.html' %}
 {% endfor %}
 
-
-<button id="jumpToTop" class="btn btn-info btn-sm btn-outline-dark" title="Back to top" onclick="scrollTopFunction()">Back to top</button>
+<!-- button to scroll the page back to the top -->
+<button id="jumpToTop" class="btn btn-info btn-sm btn-outline-dark" title="Back to top" onclick="scrollToTop()">Back to top</button>
 
 
 

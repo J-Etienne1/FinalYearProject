@@ -13,13 +13,13 @@
     <div class="col-md-7 mx-auto">
         <div class="card">
 
-            <div class="card-header">Add an Item to the Inventory</div>
+            <div class="card-header">Add/Update an Inventory Item</div>
 
             <div class="card-body">
 
 
                 <form action="" method="post">
-
+                    <!-- csrf token used to protect againts cross site request forgeries -->
                     {% csrf_token %}
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{ form.item.label_tag }}</label>

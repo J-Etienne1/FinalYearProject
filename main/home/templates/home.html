@@ -9,7 +9,7 @@
     
 <div>
     <!-- display the current date and time -->
-    <h3>Today is {{ now|date:'F d, Y H:i' }}</h3>
+    <h3>Today is {{ current_date_time|date:'F d, Y H:i' }}</h3>
 </div>
 
 
@@ -18,7 +18,8 @@
 </div>
 
 <div>
-    {% for booking in bookings %}
+    <!-- loops through users bookings and displays the 1st two booking not marked as completed-->
+    {% for booking in bookings %} 
         <div class="col-md-8 py-3">
             <div class="card">
                 <div class="card-header text-center">

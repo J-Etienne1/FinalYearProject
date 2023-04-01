@@ -1,10 +1,11 @@
 {% load static %}
 
-<div class="modal fade" id="deleteModal-{{ item.id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ item.id }}" aria-hidden="true">
+<!-- using the itemid to dispay a model for the item you want to delete -->
+<div class="modal fade" id="deleteModal-{{ item.id }}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel-{{ item.id }}">Confirm Delete</h5>        
+        <h5 class="modal-title">Confirm Delete</h5>        
       </div>
       <div class="modal-body">
         <p>Are you sure you want to Delete <q>{{ item.item }}</q></p>

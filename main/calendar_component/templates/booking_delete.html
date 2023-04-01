@@ -1,10 +1,11 @@
 {% load static %}
 
-<div class="modal fade" id="deleteModal-{{ form.instance.pk }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ form.instance.pk }}" aria-hidden="true">
+<!-- using the bookingid to dispay a model for the booking you want to delete-->
+<div class="modal fade" id="deleteModal-{{ form.instance.pk }}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel-{{ form.instance.pk }}">Confirm Delete</h5>          
+        <h5 class="modal-title">Confirm Delete</h5>          
       </div>
 
       <div class="modal-body">

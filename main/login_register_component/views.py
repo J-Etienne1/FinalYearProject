@@ -8,33 +8,25 @@ from django.shortcuts import render
 
 
 
-# LOGIN VIEW
+# use djangos Loginview to handle user login
 class Login(LoginView):
     template_name = 'login.html'
 
 
 
 
-# LOGOUT VIEW  -  # http://127.0.0.1:8000/login/logout
+# use djangos Logoutview to handle user logout
 class Logout(LogoutView):
     template_name = 'logout.html'
 
 
 
 
-
+# use djangos Createview to handle user registration and UserCreationForm for the registration form
 class Register(CreateView):
     form_class = UserCreationForm
     template_name = 'register.html'
+    # redirect to login page after registration 
     success_url = 'http://localhost:8000/login/'
 
-    # after register get redirected to Login Page, want to maybe put in a page to say acc is registered and now need to log in, will also need to think about STRIPE integration
-
-    def get(self, request, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('http://localhost:8000/login/')
-        return super().get(request, *args, **kwargs)
-
-
-    
 

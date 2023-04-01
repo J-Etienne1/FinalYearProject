@@ -14,67 +14,13 @@ class Booking(models.Model):
     start_time = models.DateTimeField() 
     end_time = models.DateTimeField() 
     completed = models.BooleanField(default=False) 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')    
     
-    
- 
  
 
     @property 
-    def get_html_url(self): 
+    def get_html_url(self): # creates the a link for each booking on the calendar what when clicked will bring up the booking edit page for the booking clicked 
         url = reverse('calendar_component:booking_edit', args=(self.id,)) 
         return f'<a href="{url}"> {self.title} </a>' 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-        title --> title
-        details --> description
-        quote --> quote
-        contact --> contact
-        tel --> phone_number
-        materials_needed --> materials_needed
-        materials_cost --> materials_cost
-''' 

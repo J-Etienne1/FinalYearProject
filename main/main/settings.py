@@ -20,8 +20,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 '''
 ============================================
 ============================================
-SUPERUSER:
 
+SUPERUSER:
 usermane: admin
 email: admin@mail.com
 PW: 123456
@@ -29,12 +29,10 @@ PW: 123456
 
 
 STANDARD TEST USER:
-
 User1
 User2
+Test user PWs - Password!.0
 
-
-All Test user PWs - Password!.0
 ============================================
 ============================================
 '''

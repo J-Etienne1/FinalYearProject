@@ -23,3 +23,6 @@ class BookingForm(ModelForm):
         # sets the format for start and end times
         self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',) 
         self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',) 
+
+
+        

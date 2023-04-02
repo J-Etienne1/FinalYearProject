@@ -87,3 +87,10 @@ def delete_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk) # gets booking using bookingid
     booking.delete()
     return redirect('calendar_component:calendar')
+
+
+
+
+
+
+

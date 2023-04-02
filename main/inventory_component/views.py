@@ -5,7 +5,7 @@ from .forms import ItemForm
 
 
 
-# using the django Listview class of displaying item list
+# using the django Listview class for displaying item list
 class InventoryList(LoginRequiredMixin, ListView):
     model = Inventory
     context_object_name = "items"

@@ -50,3 +50,7 @@ class Calendar(HTMLCalendar):
 			cal += f'{self.formatweek(week, bookings)}\n' 
 		return cal 
  
+
+
+
+ 

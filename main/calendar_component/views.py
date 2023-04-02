@@ -1,112 +1,16 @@
-'''     
-        DONT NOT EDIT OR DELETE
-        IF I CANT RESTRIT VIEWS PER USER JUST USE THIS VERSION
-        
-'''
-
-'''
-from django.shortcuts import render, get_object_or_404, redirect 
-from django.http import HttpResponse, HttpResponseRedirect 
+from .models import Booking 
+import calendar 
+from django.views.generic import ListView
+from .forms import BookingForm 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.decorators.http import require_POST
+from .utils import Calendar 
+from django.shortcuts import render, get_object_or_404, redirect 
+from django.http import HttpResponseRedirect 
 from datetime import datetime, timedelta, date 
 from django.utils.safestring import mark_safe 
-from django.views.generic import ListView
 from django.urls import reverse 
-from .forms import BookingForm 
-from .models import Booking 
-from .utils import Calendar 
-import calendar 
 
 
-
-
-
-
-
-
-class CalendarView(LoginRequiredMixin,ListView): 
-    model = Booking 
-    template_name = 'calendar.html' 
-    login_url = '/login'
-
-    def get_context_data(self, **kwargs):  
-        context = super().get_context_data(**kwargs) 
-        d = get_date(self.request.GET.get('month', None)) 
-        cal = Calendar(d.year, d.month) 
-        # Add the calendar and navigation links 
-        html_cal = cal.formatmonth(withyear=True) 
-        context['calendar'] = mark_safe(html_cal) 
-        context['prev_month'] = prev_month(d) 
-        context['next_month'] = next_month(d) 
-        return context
-    
-
-def get_date(current_year_month): #get back a requested month from a url or tkae current date
-    if current_year_month: 
-        year, month = (int(x) for x in current_year_month.split('-')) 
-        return date(year, month, day=1) 
-    return datetime.today() 
-
-def prev_month(d): 
-    first_day_in_month = d.replace(day=1) #gets the 1st day of the month
-    prev_month = first_day_in_month - timedelta(days=1) 
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month) 
-    return month  
-
-
-def next_month(d): 
-    days_in_month = calendar.monthrange(d.year, d.month)[1] 
-    last_day_in_month = d.replace(day=days_in_month) 
-    next_month = last_day_in_month + timedelta(days=1) 
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
-    return month 
- 
-def booking(request, booking_id=None):
-    if booking_id:
-        booking = get_object_or_404(Booking, pk=booking_id)
-    else:
-        booking = Booking()
-
-    if request.method == 'POST':
-        if 'delete' in request.POST:
-            booking.delete()
-            return HttpResponseRedirect(reverse('calendar_component:calendar'))
-        else:
-            form = BookingForm(request.POST, instance=booking)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect(reverse('calendar_component:calendar'))
-    else:
-        form = BookingForm(instance=booking)
-
-    return render(request, 'booking.html', {'form': form})
-
-
-
-@require_POST
-def delete_booking(request, pk):
-    booking = get_object_or_404(Booking, pk=pk)
-    booking.delete()
-    return redirect('calendar_component:calendar')
-'''
-
-
-
-
-
-from django.shortcuts import render, get_object_or_404, redirect 
-from django.http import HttpResponse, HttpResponseRedirect 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.decorators.http import require_POST
-from datetime import datetime, timedelta, date 
-from django.utils.safestring import mark_safe 
-from django.views.generic import ListView
-from django.urls import reverse 
-from .forms import BookingForm 
-from .models import Booking 
-from .utils import Calendar 
-import calendar 
 
 
 class CalendarView(LoginRequiredMixin, ListView):

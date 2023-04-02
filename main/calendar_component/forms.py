@@ -1,5 +1,6 @@
-from django.forms import ModelForm, DateInput, BooleanField
 from calendar_component.models import Booking
+from django.forms import ModelForm, DateInput, BooleanField
+
 
  
 class BookingForm(ModelForm):

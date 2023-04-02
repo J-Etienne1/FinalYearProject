@@ -1,18 +1,17 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from calendar_component.models import Booking
-from matplotlib.ticker import FuncFormatter
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.db.models import Sum
-import matplotlib.pyplot as plt
 from datetime import datetime
-import base64
+from django.db.models import Sum
+from django.shortcuts import render
+import matplotlib.pyplot as plt
 import io
+import base64
 
 
 
-# Use for for matplotlib to Agg that can be used to create images
+
+# Use to Agg to set as a backend that is used in rendering graphs 
 import matplotlib
 matplotlib.use('Agg')
 

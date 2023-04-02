@@ -1,11 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
-from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
-from django.shortcuts import redirect
-from django.shortcuts import render
-
+from django.contrib.auth.forms import UserCreationForm
 
 
 # use djangos Loginview to handle user login

@@ -13,6 +13,7 @@
             <div class="card-body">
                 <form action="" method="post">
                     {% csrf_token %}
+                    <!-- displays form in paragraphs-->
                     {{form.as_p}}
                     <a href="/login">Back</a>   
                     <input type="submit" class="btn btn-sm btn-success" value="Complete Your Registration" name="submit" >  

@@ -11,7 +11,7 @@ class HomePage(LoginRequiredMixin, TemplateView):
     # override the get_context_data method to pass the current date and time to the template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current_date_time'] = timezone.now() # gets the current date, year and time
+        context['current_date_time'] = timezone.localtime(timezone.now()) # gets the current date, year and time
         
         # makes sure a user only sees their own booking and that the 1st two bookings where completed is false are displayed on the homepage
         user_bookings = Booking.objects.filter(completed=False, user=self.request.user)

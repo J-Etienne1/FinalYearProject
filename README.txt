@@ -2,7 +2,6 @@
                 INSTALLATION
 =======================================
 
-tested
 
 Assumption: 
 This application was developed, run and tested on with the use of Microsoft Visual Studio Code, 

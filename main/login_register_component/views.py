@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import TemplateView
 
 
 # using djangos Loginview to handle user login
@@ -23,5 +24,4 @@ class Register(CreateView):
     template_name = 'register.html'
     # redirect to login page after registration 
     success_url = 'http://localhost:8000/login/'
-
 

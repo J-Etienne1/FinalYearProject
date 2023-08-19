@@ -2,6 +2,8 @@
                 INSTALLATION
 =======================================
 
+tested
+
 Assumption: 
 This application was developed, run and tested on with the use of Microsoft Visual Studio Code, 
 the assumption is that this is the environment it will be run on

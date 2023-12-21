@@ -14,7 +14,7 @@ Project Set up Guide:
 - Unzip the project folder
 - Open Visual Studio Code
 - Open the project folder in Visual Studio Code
-- In Visual Studio Code code open a terminal
+- In Visual Studio Code open a terminal
 - Select Command Prompt as your interface
 - Install a virtual environment if not already installed
 - If not installed enter following command in the terminal: pip install virtualenv

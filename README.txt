@@ -23,10 +23,10 @@ Project Set up Guide:
 - Once activated, indicated by the virtual env name to the left of the directory path
 - Navigate back to the main project folder
 - Now navigate to the folder called main
-- Next the systems requirements need to install
+- Next the systems requirements need to be installed
 - In the terminal enter the following command: pip install -r requirements.txt
-- After the requirements have been installed run the following command to activate the systems: python manage.py runserver
-- The application can then accessed with the following link: http://127.0.0.1:8000/
+- After the requirements have been installed, run the following command to activate the systems: python manage.py runserver
+- The application can then be accessed with the following link: http://127.0.0.1:8000/
 
 
 

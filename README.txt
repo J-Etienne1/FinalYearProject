@@ -16,7 +16,7 @@ Project Set up Guide:
 - Install a virtual environment if not already installed
 - If not installed enter following command in the terminal: pip install virtualenv
 - Create a virtual environment with the following command: virtualenv env
-- Once the virtual environment has been created it need to be activated
+- Once the virtual environment has been created it needs to be activated
 - To activate the virtual env, navigate to the newly created virtual env folder
 - Then navigate to a subfolder Scripts
 - Then to activate the virtual environment enter the command: activate

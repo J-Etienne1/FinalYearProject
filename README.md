@@ -51,6 +51,7 @@ The standard user credentials are as follows
 
 Username:           Password: 
 User1               Password!.0
+
 User2               Password!.0
 
 

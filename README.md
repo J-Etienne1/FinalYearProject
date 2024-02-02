@@ -42,9 +42,11 @@ Project Set up Guide:
 
 The system has a Admin User created with the following credentials 
 
-Username:           Password: 
-admin               123456
+Username:            
+admin  
 
+Password:
+123456
 
 There are also two standard accounts for testing and highlighting that users data is not viable by other users
 The standard user credentials are as follows

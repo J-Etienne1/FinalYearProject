@@ -51,11 +51,20 @@ Password:
 There are also two standard accounts for testing and highlighting that users data is not viable by other users
 The standard user credentials are as follows
 
-Username:           Password: 
+Username:
+User1   
 
-User1               Password!.0
+Password: 
+Password!.0
 
-User2               Password!.0
+
+
+Username:
+User2   
+
+Password: 
+Password!.0
+
 
 
 

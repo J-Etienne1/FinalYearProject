@@ -52,21 +52,17 @@ There are also two standard accounts for testing and highlighting that users dat
 The standard user credentials are as follows
 
 Username:
-
 User1   
 
 Password:
-
 Password!.0
 
 
 
 Username:
-
 User2   
 
 Password:
-
 Password!.0
 
 

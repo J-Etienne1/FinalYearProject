@@ -1,8 +1,8 @@
-=======================================
+==========================================================================
                 
                 INSTALLATION
 
-=======================================
+==========================================================================
 
 
 
@@ -35,32 +35,43 @@ Project Set up Guide:
 
 
 
-=======================================
+==========================================================================
                 
                 Accounts
-=======================================
+==========================================================================
 
 The system has a Admin User created with the following credentials 
 
-Username:           Password: 
-admin               123456
+Username:            
+admin  
 
+Password:
+123456
 
 There are also two standard accounts for testing and highlighting that users data is not viable by other users
 The standard user credentials are as follows
 
-Username:           Password: 
-User1               Password!.0
-User2               Password!.0
+Username:
+User1   
+
+Password:
+Password!.0
+
+
+
+Username:
+User2   
+
+Password:
+Password!.0
 
 
 
 
-
-=======================================
+==========================================================================
         
         Registration Test Cards
-=======================================
+==========================================================================
 
 Successful payment:
 

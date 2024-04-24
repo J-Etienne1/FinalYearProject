@@ -11,8 +11,6 @@ from django.utils.safestring import mark_safe
 from django.urls import reverse 
 
 
-
-
 class CalendarView(LoginRequiredMixin, ListView):
     model = Booking
     template_name = 'calendar.html'
@@ -37,16 +35,12 @@ class CalendarView(LoginRequiredMixin, ListView):
         context['next_month'] = next_month(month_navigation)
         return context
 
-    
 
 def get_date(current_year_month): # gets the current date and splits it out into year and month that can be used for the previous_month and next_month functions
     if current_year_month: 
         year, month = (int(x) for x in current_year_month.split('-')) 
         return date(year, month, day=1) 
     return datetime.today() 
-
-
-
 
 
 def previous_month(month_navigation): 
@@ -62,7 +56,8 @@ def next_month(month_navigation):
     next_month = last_day_in_month + timedelta(days=1) # adds a day to the last day of the month to get the next month
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month) 
     return month 
- 
+
+
 def booking(request, booking_id=None):
     if booking_id: # checks if there is a bookingid and if there is make sure it is for the user
         booking = get_object_or_404(Booking, pk=booking_id, user=request.user)  
@@ -81,16 +76,7 @@ def booking(request, booking_id=None):
     return render(request, 'booking.html', {'form': form}) # displays booking page with the booking form
 
 
-
-
 def delete_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk) # gets booking using bookingid
     booking.delete()
     return redirect('calendar_component:calendar')
-
-
-
-
-
-
-

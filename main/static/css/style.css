@@ -1,18 +1,15 @@
-
 /*
 =====================================================
       NavBar - 3D Button click
 */
-.btn-3d-click:hover {background-color: #fff}
+.btn-3d-click:hover {
+  background-color: #fff;
+}
 
 .btn-3d-click:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
-
-
-
 
 /*
 =====================================================
@@ -26,11 +23,9 @@
   z-index: 100;
 }
 
-
-
 /*
 =====================================================
-      Inventory - Stick jump to the top of the inventoy list button at the bottom right of the screen
+      Inventory - Stick jump to the top of the inventory list button at the bottom right of the screen
 */
 
 #jumpToTop {
@@ -38,89 +33,73 @@
   right: 75px;
   bottom: 100px;
   z-index: 100;
-  
 }
-
 
 /*
 =====================================================
-      Inventory - Update button padding to the right on inventoy list page
+      Inventory - Update button padding to the right on inventory list page
 */
 .update-button-right-padding {
-  margin-right: 8px; 
+  margin-right: 8px;
 }
-
 
 /*
 =====================================================
       Calendar - styling for calendar
 */
 
-
 .calendar {
-    width: 98%;
-    margin: auto;
-    font-size: 13px;
-  }
-  
-  .calendar tr, .calendar td {
-    border: 1px solid black;
-  }
-  
-  .calendar th {
-    padding: 10px;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .calendar td {
-    width: 200px;
-    height: 150px;
-    padding: 20px 0px 0px 5px;
-  }
-  
-  .month {
-    font-size: 25px;
-  }
-  
-  .date {
-    font-size: 16px;
-  }
-  
-  ul {
-    height: 100%;
-    padding: 0px 5px 0px 20px;
-  }
-  
-  a {
-    color: #17a2b8;
-  }
+  width: 98%;
+  margin: auto;
+  font-size: 13px;
+}
 
+.calendar tr,
+.calendar td {
+  border: 1px solid black;
+}
 
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
 
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
 
-  .left {
-    float: left;
-  }
-  
-  .right {
-    float: right;
-  }
-  
- 
-  .clearfix {
-    margin: 15px;
-  }
-  
-  .form {
-    margin: auto;
-  }
+.month {
+  font-size: 25px;
+}
 
+.date {
+  font-size: 16px;
+}
 
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
 
+a {
+  color: #17a2b8;
+}
 
+.left {
+  float: left;
+}
 
- 
+.right {
+  float: right;
+}
 
+.clearfix {
+  margin: 15px;
+}
 
-
+.form {
+  margin: auto;
+}

@@ -6,10 +6,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>{% block title %}Mgmt App{% endblock %}</title>
-
-
 
     <!-- Bootstrap CSS -->
     <link
@@ -19,64 +17,57 @@
       crossorigin="anonymous"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    
   </head>
 
-
-
-
-
   <body>
-
-
-
     <!--    NAV BAR     -->
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
-          <div class="navbar-brand ps-3">
-            <h5>Business Management Application</h5>
-          </div>
+        <div class="navbar-brand ps-3">
+          <h5>Business Management Application</h5>
+        </div>
 
-            <div class="ms-auto">
-              <!-- If user is authenticated show header with links to home, inventory, calendar and finance -->
-              {% if user.is_authenticated %}
+        <div class="ms-auto">
+          <!-- If user is authenticated show header with links to home, inventory, calendar and finance -->
+          {% if user.is_authenticated %}
 
-              <a href="{% url 'home' %}" class="btn btn-outline-light  btn-3d-click">Home</a>
-              <a href="{% url 'inventory_list' %}" class="btn btn-outline-light  btn-3d-click">Inventory</a> <!-- url taken from inventory_component urls.py-->
-                
-              <a href="{% url 'calendar_component:calendar' %}" class="btn btn-outline-light  btn-3d-click">Calendar</a>  
-              
-              
-              <a href="{% url 'finance' %}" class="btn btn-outline-light  btn-3d-click">Finance</a>  
-              
-              <a href="{% url 'logout' %}" class="btn btn-outline-light ml-6 btn-3d-click">Logout</a>
-              
-              {% else %}
-                     pass 
-              
-              {% endif %}  
-                
-            </div>
+          <a href="{% url 'home' %}" class="btn btn-outline-light btn-3d-click"
+            >Home</a
+          >
+          <a
+            href="{% url 'inventory_list' %}"
+            class="btn btn-outline-light btn-3d-click"
+            >Inventory</a
+          >
+          <!-- url taken from inventory_component urls.py-->
+
+          <a
+            href="{% url 'calendar_component:calendar' %}"
+            class="btn btn-outline-light btn-3d-click"
+            >Calendar</a
+          >
+
+          <a
+            href="{% url 'finance' %}"
+            class="btn btn-outline-light btn-3d-click"
+            >Finance</a
+          >
+
+          <a
+            href="{% url 'logout' %}"
+            class="btn btn-outline-light ml-6 btn-3d-click"
+            >Logout</a
+          >
+
+          {% else %} pass {% endif %}
+        </div>
       </div>
     </nav>
 
-
-    <div class="container my-5">
-        {% block content %} 
-        
-
-
-        
-        
-        {% endblock %}    
-    </div>
-
-
-
+    <div class="container my-5">{% block content %} {% endblock %}</div>
 
     <!-- bootstrap JS -->
     <script
@@ -87,10 +78,5 @@
 
     <!-- Custom JS -->
     <script src="{% static 'js/scripts.js' %}"></script>
-    
-   
-
-
-
   </body>
 </html>

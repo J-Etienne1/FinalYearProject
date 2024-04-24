@@ -1,52 +1,60 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block title %}Booking{% endblock title %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %}Booking{% endblock
+title %} {% block content %}
 
 <div class="row">
-    <div class="col-md-6 mx-auto">
-        <div class="card">
-            <div class="card-header">Create/Edit a Booking</div>
-            <div class="card-body">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <table class="table">
-                            {{ form }}
-                        </table>
-                    </div>
-                                
-                   <div class="row d-flex justify-content-center">
-                    {% if not form.instance.pk %} <!-- if there is no bookingid only the save button will appear-->
-                        <div class="col-5 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
-                        </div>
-                    {% else %} <!-- if there is a bookingid the save and delete buttons will appear-->
-                        <div class="col-6 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-sm btn-info w-100">Save</button>
-                        </div>
-                
-                        <div class="col-6 d-flex justify-content-center">
-                            <button type="button" class="btn btn-sm btn-danger w-100" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ form.instance.pk }}">Delete</button>
-                        </div>
-                    {% endif %}
-                </div>
-                </form>
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-header">Create/Edit a Booking</div>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <table class="table">
+              {{ form }}
+            </table>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+            {% if not form.instance.pk %}
+            <!-- if there is no bookingid only the save button will appear-->
+            <div class="col-5 d-flex justify-content-center">
+              <button type="submit" class="btn btn-sm btn-info w-100">
+                Save
+              </button>
             </div>
-            <div class="card-footer">
-                <a href="{% url 'calendar_component:calendar' %}" class="btn btn-sm btn-primary">Back</a>                    
+            {% else %}
+            <!-- if there is a bookingid the save and delete buttons will appear-->
+            <div class="col-6 d-flex justify-content-center">
+              <button type="submit" class="btn btn-sm btn-info w-100">
+                Save
+              </button>
             </div>
-        </div>
+
+            <div class="col-6 d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-sm btn-danger w-100"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal-{{ form.instance.pk }}"
+              >
+                Delete
+              </button>
+            </div>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <a
+          href="{% url 'calendar_component:calendar' %}"
+          class="btn btn-sm btn-primary"
+          >Back</a
+        >
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- if the is a bookingid the delete button will display the confirm delete model from booking_delete.html   -->
-{% if form.instance.pk %}
-    {% include 'booking_delete.html' %}
-{% endif %}
-
-
-
-{% endblock content %}
+{% if form.instance.pk %} {% include 'booking_delete.html' %} {% endif %} {%
+endblock content %}

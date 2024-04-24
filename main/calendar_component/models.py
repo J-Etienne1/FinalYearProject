@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse 
 from django.contrib.auth.models import User
 
- 
 class Booking(models.Model): 
     title = models.CharField(max_length=200) 
     details = models.TextField() 
@@ -15,8 +14,7 @@ class Booking(models.Model):
     end_time = models.DateTimeField() 
     completed = models.BooleanField(default=False) 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')    
-    
- 
+
 
     @property 
     def get_html_url(self): # creates the a link for each booking on the calendar what when clicked will bring up the booking edit page for the booking clicked 

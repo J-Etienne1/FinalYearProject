@@ -1,20 +1,17 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block title %}Finance Page{%
+endblock %} {% block content %}
 
-{% block title %}Finance Page{% endblock %}
+<h2>Income vs Expenses for {{ current_year|date:'Y' }}</h2>
 
+<div class="container-fluid">
+  <div class="text-center">
+    <!-- displays the graph -->
+    <img
+      src="data:image/png;base64,{{ finance_bar_graph|safe }}"
+      alt="Income vs Expenses"
+      class="img-fluid"
+    />
+  </div>
+</div>
 
-
-{% block content %}
-
-<h2>Income vs Expenses for {{ current_year|date:'Y' }} </h2>
-
-<div class="container-fluid">    
-    <div class="text-center">
-        <!-- displays the graph -->
-        <img src="data:image/png;base64,{{ finance_bar_graph|safe }}" alt="Income vs Expenses" class="img-fluid">
-    </div>
-</div>      
-    
-    
 {% endblock %}

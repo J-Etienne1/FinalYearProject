@@ -4,9 +4,8 @@
 <div class="modal fade" id="deleteModal-{{ item.id }}">
   <div class="modal-dialog">
     <div class="modal-content">
-      
       <div class="modal-header">
-        <h5 class="modal-title">Confirm Delete</h5>        
+        <h5 class="modal-title">Confirm Delete</h5>
       </div>
 
       <div class="modal-body">
@@ -15,13 +14,22 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <button
+          type="button"
+          class="btn btn-primary btn-outline-dark"
+          data-bs-dismiss="modal"
+        >
+          Cancel
+        </button>
         <form action="{% url 'item.delete' pk=item.id %}" method="post">
           {% csrf_token %}
-          <input type="submit" class="btn btn-danger btn-outline-dark" value="Confirm">
+          <input
+            type="submit"
+            class="btn btn-danger btn-outline-dark"
+            value="Confirm"
+          />
         </form>
       </div>
-
     </div>
   </div>
 </div>

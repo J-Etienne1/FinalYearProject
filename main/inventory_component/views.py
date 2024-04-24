@@ -57,6 +57,3 @@ class DeleteItem(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         return self.request.user.items.all()
-
-
-

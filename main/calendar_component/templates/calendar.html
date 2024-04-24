@@ -1,37 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Calendar {%
+endblock %} {% block content %}
 
-{% extends 'base.html' %}
-{% load static %}
+<div class="row">
+  <div class="col-md-15 mx-auto">
+    <div class="card">
+      <div class="card-header">Calendar</div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <!-- Previous Month button -->
+          <a
+            class="btn btn-info btn-outline-dark"
+            href="{% url 'calendar_component:calendar' %}?{{ previous_month }}"
+            >Previous Month</a
+          >
 
-{% block title %}
-Calendar
-{% endblock %}
+          <!-- New Booking button -->
+          <a
+            class="btn center btn-info btn-outline-dark"
+            href="{% url 'calendar_component:booking_new' %}"
+            >New Booking</a
+          >
 
-{% block content %}
+          <!-- Next Month button -->
+          <a
+            class="btn btn-info btn-outline-dark"
+            href="{% url 'calendar_component:calendar' %}?{{ next_month }}"
+            >Next Month</a
+          >
+        </div>
 
-
-<div class="row"> 
-    <div class="col-md-15 mx-auto">         
-        <div class="card">             
-            <div class="card-header">Calendar</div>             
-            <div class="card-body">                 
-                <div class="d-flex justify-content-between"> 
-                    <!-- Previous Month button --> 
-                    <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:calendar' %}?{{ previous_month }}">Previous Month</a>                    
-                    
-                    <!-- New Booking button --> 
-                    <a class="btn center btn-info btn-outline-dark" href="{% url 'calendar_component:booking_new' %}">New Booking</a>
-                    
-                    <!-- Next Month button --> 
-                    <a class="btn btn-info btn-outline-dark" href="{% url 'calendar_component:calendar' %}?{{ next_month }}">Next Month</a> 
-                </div> 
-                 
-                <!-- Displays the calendar --> 
-                {{ calendar }} 
-
-
-            </div> 
-        </div> 
-    </div> 
-</div> 
+        <!-- Displays the calendar -->
+        {{ calendar }}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

@@ -7,8 +7,7 @@ urlpatterns = [
     path('', views.CalendarView.as_view(), name='calendar'),
     path('booking/new/', views.booking, name='booking_new'),
     path('booking/edit/<int:booking_id>/', views.booking, name='booking_edit'),
-    path('booking/delete/<int:pk>/', views.delete_booking, name='delete_booking'), 
-  
+    path('booking/delete/<int:pk>/', views.delete_booking, name='delete_booking'),
 ]
 
 

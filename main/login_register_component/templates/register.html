@@ -1,31 +1,25 @@
-{% extends 'base.html' %}
-{% load static %}
-
-
-
-{% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">Register</div>
-            <div class="card-body">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <!-- displays form in paragraphs-->
-                    {{form.as_p}}
-                    <a href="/login">Back</a>   
-                    <input type="submit" class="btn btn-sm btn-success" value="Complete Your Registration" name="submit" >  
-                               
-                </form>          
-             </div>
-        </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Register</div>
+      <div class="card-body">
+        <form action="" method="post">
+          {% csrf_token %}
+          <!-- displays form in paragraphs-->
+          {{form.as_p}}
+          <a href="/login">Back</a>
+          <input
+            type="submit"
+            class="btn btn-sm btn-success"
+            value="Complete Your Registration"
+            name="submit"
+          />
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
-
-
-
 {% endblock content %}
-

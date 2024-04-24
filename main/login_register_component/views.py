@@ -24,4 +24,3 @@ class Register(CreateView):
     template_name = 'register.html'
     # redirect to login page after registration 
     success_url = 'http://localhost:8000/login/'
-

@@ -1,13 +1,14 @@
-{% extends 'base.html' %} {% load static %} {% block title %}Inventory Page{%
-endblock %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inventory Page{% endblock %}
+{% block content %}
 
 <!-- button to add new item to the list that is held in positon as the page is scrolled through-->
 <div>
   <a
     href="{% url 'item.new' %}"
     class="btn btn-info btn-sm btn-outline-dark add-new-item-btn-sticky"
-    >Add New Item</a
-  >
+  >Add New Item</a>
 </div>
 
 <!-- get every item-->
@@ -25,8 +26,7 @@ endblock %} {% block content %}
       <a
         href="{% url 'item.update' pk=item.id %}"
         class="btn btn-sm btn-warning btn-outline-dark btn-block update-button-right-padding"
-        >Update</a
-      >
+      >Update</a>
     </div>
 
     <div>
@@ -43,8 +43,10 @@ endblock %} {% block content %}
   {% endfor %}
 </div>
 
-<!-- if the is a itemid the delete button will display the confirm delete model from inventory_delete.html   -->
-{% for item in items %} {% include 'inventory_delete.html' %} {% endfor %}
+<!-- if there is a itemid the delete button will display the confirm delete model from inventory_delete.html   -->
+{% for item in items %}
+  {% include 'inventory_delete.html' %}
+{% endfor %}
 
 <!-- button to scroll the page back to the top -->
 <button

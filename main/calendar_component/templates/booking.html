@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block title %}Booking{% endblock
-title %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Booking{% endblock %}
+{% block content %}
 
 <div class="row">
   <div class="col-md-6 mx-auto">
@@ -48,13 +50,15 @@ title %} {% block content %}
         <a
           href="{% url 'calendar_component:calendar' %}"
           class="btn btn-sm btn-primary"
-          >Back</a
-        >
+        >Back</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- if the is a bookingid the delete button will display the confirm delete model from booking_delete.html   -->
-{% if form.instance.pk %} {% include 'booking_delete.html' %} {% endif %} {%
-endblock content %}
+<!-- if there is a bookingid the delete button will display the confirm delete model from booking_delete.html -->
+{% if form.instance.pk %}
+  {% include 'booking_delete.html' %}
+{% endif %}
+
+{% endblock %}

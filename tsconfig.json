@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": ["cypress", "node"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["cypress/**/*.ts"]
+}

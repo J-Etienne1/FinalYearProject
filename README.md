@@ -17,7 +17,7 @@ Project Set up Guide:
 - In Visual Studio Code open a terminal
 - Select Command Prompt as your interface
 - Install a virtual environment if not already installed
-- If not installed enter following command in the terminal: pip install virtualenv
+- If not installed enter following command in the terminal: pip install virtualenv (run on project root folder)
 - Create a virtual environment with the following command: virtualenv env
 - Once the virtual environment has been created it needs to be activated
 - To activate the virtual env, navigate to the newly created virtual env folder

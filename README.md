@@ -32,7 +32,20 @@ Project Set up Guide:
 - The application can then be accessed with the following link: http://127.0.0.1:8000/
 
 
+==========================================================================
+                
+                CYPRESS TESTING
 
+==========================================================================
+
+To install and run Cypress end-to-end tests:
+
+- Ensure you are at the project root folder
+- Install Cypress using npm with the following command: npm install --save-dev cypress
+- To open the Cypress Test Runner, run the following command: npx cypress open
+- Cypress will launch a browser window where you can run and view your tests
+- Test files are located in the cypress/e2e folder
+- Make sure Django is running on http://127.0.0.1:8000/ before running tests (in a separate terminal)
 
 
 ==========================================================================

@@ -41,4 +41,4 @@ class Calendar(HTMLCalendar):
 		# list the weeks in the month and returns a formatted table of days of the week and bookings
 		for week in self.monthdays2calendar(self.year, self.month):
 			cal += f'{self.formatweek(week, bookings)}\n'
-			return cal
+		return cal

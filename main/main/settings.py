@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 from pathlib import Path
-import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=pzg$lhwwp3yej_3#@imho4mzyc0!y5skk&dw-ox-1vku9aha)'
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -144,5 +144,5 @@ LOGIN_REDIRECT_URL = '/'
 
 
 # Stripe Keys
-STRIPE_PUBLIC_KEY = os.environ.get('pk_test_51MaePkDhcRijS6ewfmHiSeujJ3r8bCmKd8rjwuGecW78lkQD30KOgIrXLGlewjhpzKQxYCtDUdWZPUV3VfEbsBLr00NlgMxUBv')
-STRIPE_SECRET_KEY = os.environ.get('sk_test_51MaePkDhcRijS6ew9XYy463jjZbdyHiuNnGbQzrTzB7F5GaCSFVbGarnYjoTk5e0A5KCQjr2QDgqrV3LZELovzz3001mHNrZ7X')
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')

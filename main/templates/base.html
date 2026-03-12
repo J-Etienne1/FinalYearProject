@@ -1,6 +1,6 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -56,11 +56,19 @@
             >Finance</a
           >
 
-          <a
-            href="{% url 'logout' %}"
-            class="btn btn-outline-light ml-6 btn-3d-click"
-            >Logout</a
+          <form
+            method="POST"
+            action="{% url 'logout' %}"
+            style="display: inline"
           >
+            {% csrf_token %}
+            <button
+              type="submit"
+              class="btn btn-outline-light ml-6 btn-3d-click"
+            >
+              Logout
+            </button>
+          </form>
 
           {% else %} pass {% endif %}
         </div>

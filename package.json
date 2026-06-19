@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "cypress": "^15.10.0",
+    "cypress": "^15.17.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   }
